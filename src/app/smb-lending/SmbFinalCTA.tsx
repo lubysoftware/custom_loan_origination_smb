@@ -135,8 +135,8 @@ export default function SmbFinalCTA() {
               marginBottom: 20,
             }}
           >
-            Let&apos;s discuss how to improve your servicing experience —{" "}
-            <span style={{ color: "#41A0DC" }}>and give you full control over how your platform operates</span>
+            Let&apos;s discuss how to improve your origination flow —{" "}
+            <span style={{ color: "#41A0DC" }}>and turn it into a driver of growth</span>
           </h2>
 
           <div
@@ -196,10 +196,10 @@ export default function SmbFinalCTA() {
           }}
         >
           <p style={{ fontSize: 16, fontWeight: 600, color: "#061832", marginBottom: 4, letterSpacing: "-0.02em" }}>
-            Request your free friction audit
+            Request your origination audit
           </p>
           <p style={{ fontSize: 12, color: "#7A8FA3", lineHeight: 1.6, marginBottom: 24 }}>
-            We map your borrower journey and tell you where delinquency risk concentrates — no commitment.
+            We map your application flow and identify where you&apos;re losing borrowers — and how to fix it.
           </p>
 
           <form
@@ -283,7 +283,7 @@ export default function SmbFinalCTA() {
               <label htmlFor="smb-message" style={labelStyle}>What&apos;s the main problem you&apos;re solving?</label>
               <textarea
                 id="smb-message"
-                placeholder="Tell us about your loan portfolio and current servicing setup..."
+                placeholder="Tell us about your loan portfolio and current origination setup..."
                 rows={4}
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
@@ -313,7 +313,7 @@ export default function SmbFinalCTA() {
               onMouseEnter={(e) => { if (status !== "loading") (e.currentTarget as HTMLElement).style.background = "#2E8AB8"; }}
               onMouseLeave={(e) => { if (status !== "loading") (e.currentTarget as HTMLElement).style.background = "#41A0DC"; }}
             >
-              {status === "loading" ? "Sending..." : "Request My Friction Audit"}
+              {status === "loading" ? "Sending..." : "Request My Origination Audit"}
             </button>
 
             {status === "success" && (

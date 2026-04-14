@@ -10,26 +10,26 @@ import SmbComparison from "./SmbComparison";
 import SmbChannelCarousel from "./SmbChannelCarousel";
 
 export const metadata: Metadata = {
-  title: "Custom Loan Servicing Platform for SMB Lenders | Luby",
+  title: "Custom Loan Origination Platform for SMB Lenders | Luby",
   description:
-    "Luby builds custom loan servicing platforms for SMB and SBA lenders — reducing delinquency, cutting support costs, connected to LoanPro and other LMS platforms. You own the code.",
+    "Luby builds custom loan origination platforms for SMB and SBA lenders — integrated with your systems, designed for your credit model, and fully under your control. You own the code.",
   alternates: {
     canonical: "https://landing.luby.co/ai_oriented_development/smb-lending/",
   },
   openGraph: {
     type: "website",
     url: "https://landing.luby.co/ai_oriented_development/smb-lending/",
-    title: "Custom Loan Servicing Platform for SMB Lenders | Luby",
+    title: "Custom Loan Origination Platform for SMB Lenders | Luby",
     description:
-      "Luby builds custom loan servicing platforms for SMB and SBA lenders — reducing delinquency, cutting support costs, connected to LoanPro and other LMS platforms. You own the code.",
+      "Luby builds custom loan origination platforms for SMB and SBA lenders — integrated with your systems, designed for your credit model, and fully under your control. You own the code.",
     siteName: "Luby",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Custom Loan Servicing Platform for SMB Lenders | Luby",
+    title: "Custom Loan Origination Platform for SMB Lenders | Luby",
     description:
-      "Custom loan servicing platforms for SMB and SBA lenders — connected to LoanPro, owned by your team.",
+      "Custom loan origination platforms for SMB and SBA lenders — owned by your team.",
   },
   robots: { index: true, follow: true },
 };
@@ -54,47 +54,47 @@ const SMB_CLIENT_LOGOS = [
 const SMB_SOLUTION_CARDS = [
   {
     icon: "phone" as const,
-    title: "SMB-native borrower portal",
-    body: "Real-time LMS sync. Mobile-first. Designed for borrowers paying from their phone, not a desktop at a bank branch.",
+    title: "Application flows that reduce drop-off",
+    body: "Streamlined, mobile-first experiences designed to handle complex applications without overwhelming the applicant.",
   },
   {
     icon: "payment" as const,
-    title: "Payment flows that remove every excuse",
-    body: "ACH, debit, autopay, one-time payments — with save-and-return and confirmation screens that reduce drop-off.",
+    title: "Smarter data capture and automation",
+    body: "Pre-fill, save-and-return, and progressive forms that reduce friction and speed up completion.",
   },
   {
     icon: "bell" as const,
-    title: "Proactive outreach before the missed payment",
-    body: "Triggered outreach before the missed payment — not after. Push, SMS, and email tied to real loan state, not a calendar.",
+    title: "Document collection without bottlenecks",
+    body: "Upload, e-sign, and verification flows designed to handle required documentation without slowing the applicant down.",
   },
   {
     icon: "shield" as const,
-    title: "SBA compliance baked in",
-    body: "SBA 7(a) and 504 workflows, SOP 50 10 8, Dodd-Frank 1071, and audit trails.",
+    title: "Real-time status and communication",
+    body: "Applicants track progress and receive updates without calling support.",
   },
   {
     icon: "sparkles" as const,
-    title: "UX designed by lending specialists",
-    body: "Our design team works exclusively in financial products.",
+    title: "Decisioning aligned with your credit model",
+    body: "Your rules, your logic — integrated across systems.",
   },
 ] as const;
 
-const SMB_CHANNEL_UNLOCK_CARDS = [
+const SMB_EXPERIENCE_CARDS = [
   {
-    title: "Targeted offers, driven by loan data",
-    body: "Pre-qualifications, cross-sell, partner offers — triggered by real borrower context, not guesswork.",
+    title: "Higher application completion rates",
+    body: "Fewer steps, better UX, and clear progress reduce drop-off.",
   },
   {
-    title: "Direct communication, fully controlled",
-    body: "Push, SMS, in-app — the right message, at the right moment, without relying on external channels.",
+    title: "Faster time to decision",
+    body: "Integrated data and streamlined workflows accelerate approvals.",
   },
   {
-    title: "A platform your team can operate",
-    body: "Launch campaigns, update content, and target segments directly from your admin — no engineering, no vendor queue.",
+    title: "Better borrower experience from day one",
+    body: "Transparency and communication build trust early in the relationship.",
   },
   {
-    title: "A data layer that compounds",
-    body: "Every interaction feeds your ability to segment, predict, and act. The platform improves as your portfolio grows.",
+    title: "A data layer that improves conversion",
+    body: "Every interaction helps optimize your funnel over time.",
   },
 ] as const;
 
@@ -210,8 +210,8 @@ export default function SmbLendingPage() {
                     maxWidth: 800,
                   }}
                 >
-                  Off-the-shelf loan servicing platforms{" "}
-                  <span style={{ color: "#41A0DC" }}>limit how you operate.</span>
+                  Off-the-shelf loan origination platforms{" "}
+                  <span style={{ color: "#41A0DC" }}>limit how you acquire borrowers.</span>
                 </h2>
                 <p
                   style={{
@@ -222,10 +222,10 @@ export default function SmbLendingPage() {
                     margin: "0 auto",
                   }}
                 >
-                  Off-the-shelf loan servicing platforms weren&apos;t built for your credit model. They force your
-                  workflows into generic structures and gate every change behind vendor timelines. Small updates take
-                  months. Your borrower experience stays generic. You don&apos;t control the platform — and that slows
-                  down everything that impacts delinquency.
+                  They weren&apos;t built for your credit model. They force your application flows into rigid
+                  structures and gate every change behind vendor timelines. Small updates take months. Your
+                  application experience stays generic. You don&apos;t control the platform — and that slows
+                  down everything that impacts conversion.
                 </p>
               </div>
 
@@ -246,7 +246,7 @@ export default function SmbLendingPage() {
                 }}
               >
                 <p style={{ margin: 0, fontSize: 14, fontWeight: 500, color: "#6B8099" }}>
-                  Fast and owned. That&apos;s the only combination that actually reduces delinquency.
+                  Fast and owned. That&apos;s what actually improves conversion.
                 </p>
                 <a
                   className="smb-problem-cta"
@@ -267,7 +267,7 @@ export default function SmbLendingPage() {
                     transition: "background 0.15s, border-color 0.15s, color 0.15s",
                   }}
                 >
-                  See what we&apos;d change in your portal →
+                  See what we&apos;d change in your application flow →
                 </a>
               </div>
             </SmbMotionReveal>
@@ -333,16 +333,12 @@ export default function SmbLendingPage() {
                     marginBottom: 20,
                   }}
                 >
-                  Custom loan servicing, built around how{" "}
-                  <span style={{ color: "#41A0DC" }}>SMB borrowers actually behave</span>
+                  Custom loan origination, built around how{" "}
+                  <span style={{ color: "#41A0DC" }}>borrowers actually apply</span>
                 </h2>
                 <p style={{ fontSize: 16, lineHeight: 1.8, color: "#6B8099", marginBottom: 16, maxWidth: 520 }}>
-                  We don&apos;t configure a template. We build a servicing platform for your credit model, your loan
-                  products, and your borrowers. You own the codebase.
-                </p>
-                <p style={{ fontSize: 15, lineHeight: 1.8, color: "#6B8099", maxWidth: 520 }}>
-                  Generic tools create friction. Friction turns into delinquency. And you don&apos;t control the platform
-                  — that slows down everything that impacts delinquency.
+                  We don&apos;t configure a template. We build an origination platform for your credit model, your
+                  workflows, and your applicants. You own the codebase.
                 </p>
               </div>
               <div className="smb-sec2-img" style={{ flex: "0 0 auto" }}>
@@ -360,7 +356,7 @@ export default function SmbLendingPage() {
                   }}
                 >
                   <img
-                    src={`${BASE}/application-mockup2.png`}
+                    src={`${BASE}/origination2.png`}
                     alt="Application mockup"
                     style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain", display: "block" }}
                   />
@@ -423,104 +419,134 @@ export default function SmbLendingPage() {
           `}</style>
         </section>
 
-        {/* ═══════════════════════════════════════════════════════════════════
-            THE CHANNEL
-        ═══════════════════════════════════════════════════════════════════ */}
-        <section style={{ background: "#FFFFFF", padding: "clamp(80px, 10vw, 120px) 24px" }}>
-          <div style={{ maxWidth: 760, margin: "0 auto" }} className="smb-reveal">
-            <SmbMotionReveal>
-              <div style={{ textAlign: "center", marginBottom: 40 }}>
-                <div
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    padding: "5px 14px",
-                    borderRadius: 100,
-                    border: "1px solid rgba(65,160,220,0.2)",
-                    background: "rgba(65,160,220,0.06)",
-                    marginBottom: 22,
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: 11,
-                      fontWeight: 600,
-                      color: "#41A0DC",
-                      letterSpacing: "0.06em",
-                      textTransform: "uppercase",
-                    }}
-                  >
-                    The Channel
-                  </span>
-                </div>
-                <h2
-                  style={{
-                    fontSize: "clamp(28px, 3.5vw, 40px)",
-                    fontWeight: 700,
-                    letterSpacing: "-0.03em",
-                    lineHeight: 1.15,
-                    color: "#061832",
-                    margin: "0 auto 18px",
-                    maxWidth: 640,
-                  }}
-                >
-                  Your borrower portal can do more{" "}
-                  <span style={{ color: "#41A0DC" }}>than process payments.</span>
-                </h2>
-                <p
-                  style={{
-                    fontSize: 16,
-                    lineHeight: 1.75,
-                    color: "#6B8099",
-                    margin: "0 auto 28px",
-                    maxWidth: 620,
-                  }}
-                >
-                  You already paid to acquire these borrowers — your servicing platform should be your
-                  lowest-cost growth channel. Every login is a high-intent moment: balances, payments, money
-                  on the mind. That kind of attention can&apos;t be bought; it has to be built into the
-                  experience. Most lenders treat the portal as a transaction;{" "}
-                  <span style={{ color: "#061832", fontWeight: 600 }}>the best ones turn it into a relationship.</span>
-                </p>
-                <p
-                  style={{
-                    fontSize: 13,
-                    fontWeight: 600,
-                    letterSpacing: "0.12em",
-                    textTransform: "uppercase",
-                    color: "#6B8099",
-                    margin: "0 auto 24px",
-                    maxWidth: 620,
-                  }}
-                >
-                  What that unlocks
-                </p>
-              </div>
 
-              <SmbChannelCarousel cards={SMB_CHANNEL_UNLOCK_CARDS} />
-            </SmbMotionReveal>
+
+        {/* ═══════════════════════════════════════════════════════════════════
+            HOW IT WORKS (4 steps, timeline)
+        ═══════════════════════════════════════════════════════════════════ */}
+        <section
+          id="how-it-works"
+          style={{
+            background: "#F5F8FC",
+            padding: "clamp(80px, 10vw, 120px) 24px clamp(48px, 6vw, 72px)",
+            position: "relative",
+          }}
+        >
+          <div style={{ maxWidth: 1100, margin: "0 auto" }} className="smb-reveal">
+            <div style={{ textAlign: "center", marginBottom: 32 }}>
+              <div style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "5px 14px", borderRadius: 100, border: "1px solid rgba(65,160,220,0.2)", background: "rgba(65,160,220,0.06)", marginBottom: 16 }}>
+                <span style={{ fontSize: 11, fontWeight: 600, color: "#41A0DC", letterSpacing: "0.06em", textTransform: "uppercase" }}>How it works</span>
+              </div>
+              <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 700, lineHeight: 1.1, letterSpacing: "-0.02em", color: "#061832", marginBottom: 0 }}>
+                From application friction to production
+                <br />
+                <span style={{ color: "#41A0DC" }}>without a vendor in the middle</span>
+              </h2>
+            </div>
+
+            <style>{`
+              .smb-how-card {
+                background: #ffffff;
+                border: 1px solid rgba(6, 24, 50, 0.08);
+                border-radius: 16px;
+                padding: clamp(20px, 3vw, 32px);
+                position: relative;
+                overflow: hidden;
+                transition:
+                  background 0.22s ease,
+                  border-color 0.22s ease,
+                  box-shadow 0.22s ease,
+                  transform 0.22s ease;
+              }
+              .smb-how-card:hover {
+                background: linear-gradient(165deg, rgba(65, 160, 220, 0.14) 0%, rgba(65, 160, 220, 0.06) 45%, rgba(255, 255, 255, 0.96) 100%);
+                border-color: rgba(65, 160, 220, 0.45);
+                box-shadow: 0 12px 40px rgba(65, 160, 220, 0.18);
+                transform: translateY(-3px);
+              }
+              .smb-how-card:hover .smb-how-card__title {
+                color: #061832;
+              }
+              .smb-how-card:hover .smb-how-card__body {
+                color: #4b5d6e;
+              }
+            `}</style>
+
+            <div className="grid grid-cols-1 md:grid-cols-4" style={{ gap: 20 }}>
+              {[
+                { num: "01", title: "Funnel Mapping", sub: "Week 1", body: "We audit your application flow end-to-end and identify where applicants drop off." },
+                { num: "02", title: "Platform Design", sub: "Weeks 1–2", body: "We design your origination experience around your credit model and workflows." },
+                { num: "03", title: "Engineering & Integration", sub: "Continuous sprints", body: "We build and integrate — connecting your systems and shipping against real data." },
+                { num: "04", title: "Launch & Measurement", sub: "Structured launch", body: "We go live, measure conversion, and hand off the platform fully owned by your team." },
+              ].map((step) => (
+                <div key={step.num} className="smb-how-card">
+                  <span style={{ display: "inline-block", fontSize: 10, fontWeight: 700, color: "#41A0DC", background: "rgba(65,160,220,0.1)", padding: "3px 10px", borderRadius: 100, marginBottom: 16, letterSpacing: "0.06em" }}>
+                    {step.sub}
+                  </span>
+                  <h3 className="smb-how-card__title" style={{ fontSize: 16, fontWeight: 600, color: "#061832", marginBottom: 10, lineHeight: 1.3, transition: "color 0.22s ease" }}>
+                    {step.title}
+                  </h3>
+                  <p className="smb-how-card__body" style={{ fontSize: 13, lineHeight: 1.75, color: "#6B8099", margin: 0, transition: "color 0.22s ease" }}>
+                    {step.body}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div style={{ textAlign: "center", marginTop: 48 }}>
+              <a href="#contact" className="smb-btn-primary">
+                Request your origination audit
+              </a>
+            </div>
           </div>
         </section>
 
 
         {/* ═══════════════════════════════════════════════════════════════════
-            SECTION 3 — ref: "Connecting Business Through Transactions"
-            Dark background, centered heading, 4 big metric cards in a row
+            INTEGRATIONS (dark, scrolling pills)
         ═══════════════════════════════════════════════════════════════════ */}
         <section
           style={{
-            background: "linear-gradient(180deg, #FFFFFF 0%, #E8ECEF 30%, #E8ECEF 70%, #F5F8FC 100%)",
-            padding: "clamp(32px, 4vw, 48px) 24px",
+            background: "#061832",
+            padding: "clamp(60px, 8vw, 90px) 24px",
+            overflow: "hidden",
           }}
         >
-          <SmbStatCounters />
+          <style>{`
+            @keyframes smb-scroll-left  { from { transform: translateX(0); }   to { transform: translateX(-50%); } }
+            @keyframes smb-scroll-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+          `}</style>
+
+          <div style={{ maxWidth: 1100, margin: "0 auto 48px", textAlign: "center" }}>
+            <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "#7DC4EB", marginBottom: 14 }}>Integrations</p>
+            <h2 style={{ fontSize: "clamp(22px, 3vw, 34px)", fontWeight: 700, letterSpacing: "-0.02em", lineHeight: 1.15, color: "#F5F8FC", marginBottom: 12 }}>
+              Your stack.{" "}
+              <span style={{ color: "#7DC4EB" }}>Your systems. Your control.</span>
+            </h2>
+          </div>
+
+          {[
+            { bg: "rgba(65,160,220,0.07)", border: "rgba(65,160,220,0.2)", items: ["Fiserv", "Jack Henry", "DCI", "Finastra", "Temenos", "LoanPro", "LendAPI"], dir: "left", speed: "60s" },
+            { bg: "rgba(125,196,235,0.06)", border: "rgba(125,196,235,0.18)", items: ["Experian", "TransUnion", "Equifax", "Plaid", "DocuSign", "Identity Verification"], dir: "right", speed: "50s" },
+            { bg: "rgba(91,184,224,0.06)", border: "rgba(91,184,224,0.18)", items: ["Stripe", "Moov", "J.P. Morgan Payments"], dir: "left", speed: "65s" },
+          ].map((row) => (
+            <div key={row.dir + row.speed} style={{ marginBottom: 14, position: "relative", overflow: "hidden" }}>
+              <div style={{ position: "absolute", inset: "0 auto 0 0", width: 80, background: "linear-gradient(to right, #061832, transparent)", zIndex: 1, pointerEvents: "none" }} />
+              <div style={{ position: "absolute", inset: "0 0 0 auto", width: 80, background: "linear-gradient(to left, #061832, transparent)", zIndex: 1, pointerEvents: "none" }} />
+              <div style={{ display: "flex", width: "max-content", gap: 10, animation: `smb-scroll-${row.dir} ${row.speed} linear infinite` }}>
+                {[...row.items, ...row.items, ...row.items, ...row.items, ...row.items, ...row.items, ...row.items, ...row.items].map((item, idx) => (
+                  <div key={idx} style={{ display: "inline-flex", alignItems: "center", padding: "9px 18px", background: row.bg, border: `1px solid ${row.border}`, borderRadius: 999, flexShrink: 0, whiteSpace: "nowrap" as const }}>
+                    <span style={{ fontSize: 13, fontWeight: 500, color: "#D7DEE6" }}>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
         </section>
 
 
         {/* ═══════════════════════════════════════════════════════════════════
-            SECTION 4 — ref: "Reliable Checkout Security & Compliance"
-            Two columns: left = dark product card with badge/image,
-            right = heading + feature checklist
+            IN PRODUCTION
         ═══════════════════════════════════════════════════════════════════ */}
         <section
           id="in-production"
@@ -528,7 +554,7 @@ export default function SmbLendingPage() {
         >
           <div style={{ maxWidth: 1100, margin: "0 auto" }} className="smb-reveal">
             <div className="smb-sec4-grid" style={{ display: "flex", gap: "clamp(32px, 5vw, 72px)", alignItems: "center" }}>
-              {/* LEFT — product card with image (like ref's device card) */}
+              {/* LEFT — product card with logo */}
               <div style={{ flex: "1 1 50%", minWidth: 0 }}>
                 <div
                   style={{
@@ -541,25 +567,25 @@ export default function SmbLendingPage() {
                     boxShadow: "0 32px 80px rgba(0,0,0,0.25)",
                   }}
                 >
-                  {/* product screenshot */}
-                  <div style={{ marginBottom: 24 }}>
+                  {/* logo */}
+                  <div style={{ marginBottom: 32, display: "flex", alignItems: "center", justifyContent: "center", padding: "24px 0" }}>
                     <img
-                      src={`${BASE}/irisloan-mockup.png`}
-                      alt="IrisLoan borrower portal"
-                      style={{ width: "100%", height: "auto", display: "block" }}
+                      src={`${BASE}/logos/clients/swblogowhite.png`}
+                      alt="Sunwest Bank"
+                      style={{ maxWidth: 300, height: "auto", display: "block", opacity: 0.95 }}
                     />
                   </div>
 
                   {/* status row */}
                   <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
                     {[
-                      { label: "LoanPro", desc: "Real-time sync" },
-                      { label: "Live", desc: "Real payments" },
-                      { label: "12 weeks", desc: "To production" },
+                      { label: "40%", desc: "New customers" },
+                      { label: "45%", desc: "Retained post-pandemic" },
+                      { label: "8 weeks", desc: "To production" },
                     ].map((item) => (
-                      <div key={item.label} style={{ flex: "1 1 0", minWidth: 100, background: "rgba(65,160,220,0.06)", border: "1px solid rgba(65,160,220,0.12)", borderRadius: 10, padding: "12px 14px" }}>
-                        <p style={{ fontSize: 14, fontWeight: 700, color: "#F5F8FC", margin: "0 0 2px" }}>{item.label}</p>
-                        <p style={{ fontSize: 11, color: "rgba(215,222,230,0.5)", margin: 0 }}>{item.desc}</p>
+                      <div key={item.label} style={{ flex: "1 1 0", minWidth: 100, background: "rgba(65,160,220,0.08)", border: "1px solid rgba(125,196,235,0.35)", borderRadius: 10, padding: "16px 14px", textAlign: "center", boxShadow: "0 0 16px rgba(65,160,220,0.18), inset 0 0 0 1px rgba(125,196,235,0.12)" }}>
+                        <p style={{ fontSize: 18, fontWeight: 700, color: "#F5F8FC", margin: "0 0 4px" }}>{item.label}</p>
+                        <p style={{ fontSize: 12, color: "rgba(215,222,230,0.65)", margin: 0 }}>{item.desc}</p>
                       </div>
                     ))}
                   </div>
@@ -576,19 +602,19 @@ export default function SmbLendingPage() {
                   <span style={{ color: "#41A0DC" }}>Here&apos;s what it looks like at scale.</span>
                 </h2>
                 <p style={{ fontSize: 15, lineHeight: 1.75, color: "#6B8099", marginBottom: 36, maxWidth: 460 }}>
-                  IrisLoan is a full-stack loan servicing platform built on LoanPro — in production, processing real payments across a live portfolio.
+                  Sunwest Bank&apos;s online lending platform enabled borrowers to apply and track loans fully online during peak demand.
                 </p>
 
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px 24px" }}>
                   {[
-                    "LoanPro real-time sync",
-                    "Borrower portal (web + mobile)",
-                    "ACH & debit processing",
-                    "Autopay enrollment",
-                    "Push / SMS / email notifications",
-                    "Admin CMS",
+                    "Online loan application",
+                    "Real-time status tracking",
+                    "Document upload & e-sign",
+                    "Automated decisioning",
+                    "Mobile-first experience",
+                    "Admin dashboard",
                     "Role-based access & 2FA",
-                    "iOS & Android apps",
+                    "End-to-end digital origination",
                   ].map((feature) => (
                     <div key={feature} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
                       <div style={{ width: 20, height: 20, borderRadius: "50%", background: "rgba(65,160,220,0.1)", border: "1px solid rgba(65,160,220,0.2)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: 2 }}>
@@ -620,7 +646,7 @@ export default function SmbLendingPage() {
         </section>
 
         {/* ═══════════════════════════════════════════════════════════════════
-            SECTION 4b — FULL-WIDTH IMAGE (edge-to-edge; antes de Why Luby)
+            FULL-WIDTH IMAGE + RIBBON (8–16 week delivery)
         ═══════════════════════════════════════════════════════════════════ */}
         <section
           aria-label="Full-width visual"
@@ -645,7 +671,7 @@ export default function SmbLendingPage() {
             >
               <img
                 src={`${BASE}/img-lp-loan.png`}
-                alt="Loan servicing platform"
+                alt="Loan origination platform"
                 loading="lazy"
                 style={{
                   width: "100%",
@@ -693,7 +719,7 @@ export default function SmbLendingPage() {
                   padding: "0 clamp(18px, 4vw, 32px)",
                 }}
               >
-                {["12-week avg. delivery", "Live portfolios in production", "10+ years in financial software"].map((item, idx, arr) => (
+                {["8–16 week delivery", "Live origination platforms in production", "10+ years in financial software"].map((item, idx, arr) => (
                   <div
                     key={item}
                     style={{
@@ -730,9 +756,7 @@ export default function SmbLendingPage() {
         </section>
 
         {/* ═══════════════════════════════════════════════════════════════════
-            SECTION 5 — ref: "We Foster Growth Across All Business Sectors"
-            Left: heading + big metric numbers stacked
-            Right: dark cards with stats/info
+            WHY LUBY
         ═══════════════════════════════════════════════════════════════════ */}
         <section
           id="why-luby"
@@ -740,90 +764,53 @@ export default function SmbLendingPage() {
         >
           <div style={{ maxWidth: 1100, margin: "0 auto" }} className="smb-reveal">
             <div className="smb-sec5-grid" style={{ display: "flex", gap: "clamp(32px, 5vw, 72px)", alignItems: "start" }}>
-              {/* LEFT — heading + big metrics */}
               <div style={{ flex: "1 1 50%", minWidth: 0 }}>
                 <div style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "5px 14px", borderRadius: 100, border: "1px solid rgba(65,160,220,0.2)", background: "rgba(65,160,220,0.06)", marginBottom: 20 }}>
                   <span style={{ fontSize: 11, fontWeight: 600, color: "#41A0DC", letterSpacing: "0.06em", textTransform: "uppercase" }}>Why Luby</span>
                 </div>
                 <h2 style={{ fontSize: "clamp(26px, 3.5vw, 42px)", fontWeight: 700, lineHeight: 1.1, letterSpacing: "-0.02em", color: "#061832", marginBottom: 20 }}>
-                  Custom loan servicing used to mean long timelines.{" "}
+                  Custom origination used to take long timelines.{" "}
                   <span style={{ color: "#41A0DC" }}>AI changed that.</span>
                 </h2>
                 <p style={{ fontSize: 15, lineHeight: 1.8, color: "#6B8099", marginBottom: 16, maxWidth: 460 }}>
-                  But building fast isn&apos;t the hard part. In financial services, the complexity lives in the details: regulatory workflows, risk logic, payment behavior, and LMS integrations that don&apos;t behave the way the documentation suggests.
+                  But building fast isn&apos;t the hard part. In financial services, the complexity lives in the details: decisioning logic, application flows, data integrations, and systems that don&apos;t behave the way the documentation suggests.
                 </p>
                 <p style={{ fontSize: 15, lineHeight: 1.8, color: "#6B8099", marginBottom: 16, maxWidth: 460 }}>
-                  Luby brings over a decade of experience building financial systems across lending, payments, and banking infrastructure, combined with AI-accelerated development to move faster without cutting corners.
+                  Luby brings over a decade of experience building financial systems across lending, payments, and banking infrastructure — combined with AI-accelerated development to move faster without cutting corners.
                 </p>
                 <p style={{ fontSize: 15, lineHeight: 1.8, color: "#6B8099", marginBottom: 0, maxWidth: 460 }}>
-                  Every month on a platform that doesn&apos;t fit your borrowers is a month of preventable delinquency.
+                  Every improvement in your origination flow directly impacts conversion and growth.
                 </p>
               </div>
 
-              {/* RIGHT — info cards */}
               <div style={{ flex: "1 1 45%", minWidth: 0, display: "flex", flexDirection: "column", gap: 16 }}>
                 {[
                   {
                     title: "10+ years in financial software",
-                    body: "Lending, payments, and banking systems built for regulated institutions in the U.S. and Latin America. Experience that shows up where most platforms fail in production.",
-                    iconPaths: [
-                      "M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z",
-                      "M12 6v6l4 2",
-                    ],
+                    body: "Experience that shows up where most platforms fail — in production.",
+                    iconPaths: ["M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z", "M12 6v6l4 2"],
                   },
                   {
                     title: "Built for regulated environments",
-                    body: "SBA 7(a), 504, Dodd-Frank 1071, ECOA, audit trails, designed in from day one, not added later.",
-                    iconPaths: [
-                      "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z",
-                    ],
+                    body: "KYC, underwriting flows, auditability — designed in from day one.",
+                    iconPaths: ["M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"],
                   },
                   {
                     title: "Proven in production",
-                    body: "IrisLoan runs on LoanPro, processing real payments across a live portfolio. Sunwest\u2019s platform launched at peak demand and drove 40% growth.",
-                    iconPaths: [
-                      "M22 11.08V12a10 10 0 1 1-5.93-9.14",
-                      "M22 4 12 14.01l-3-3",
-                    ],
+                    body: "Sunwest\u2019s platform launched at peak demand and drove 40% growth.",
+                    iconPaths: ["M22 11.08V12a10 10 0 1 1-5.93-9.14", "M22 4 12 14.01l-3-3"],
                   },
                 ].map((card) => (
-                  <div
-                    key={card.title}
-                    style={{
-                      background: "#F9FAFB",
-                      border: "1px solid rgba(6,24,50,0.08)",
-                      borderRadius: 16,
-                      padding: "28px",
-                    }}
-                  >
-                    {/* icon + title inline */}
+                  <div key={card.title} style={{ background: "#F9FAFB", border: "1px solid rgba(6,24,50,0.08)", borderRadius: 16, padding: "28px" }}>
                     <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 10 }}>
-                      <div
-                        style={{
-                          width: 36,
-                          height: 36,
-                          borderRadius: 10,
-                          background: "#061832",
-                          border: "1px solid rgba(65,160,220,0.12)",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          flexShrink: 0,
-                        }}
-                      >
+                      <div style={{ width: 36, height: 36, borderRadius: 10, background: "#061832", border: "1px solid rgba(65,160,220,0.12)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#41A0DC" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          {card.iconPaths.map((d, i) => (
-                            <path key={i} d={d} />
-                          ))}
+                          {card.iconPaths.map((d, i) => <path key={i} d={d} />)}
                         </svg>
                       </div>
-                      <h3 style={{ fontSize: 15, fontWeight: 600, color: "#061832", margin: 0, lineHeight: 1.3 }}>
-                        {card.title}
-                      </h3>
+                      <h3 style={{ fontSize: 15, fontWeight: 600, color: "#061832", margin: 0, lineHeight: 1.3 }}>{card.title}</h3>
                     </div>
-                    <p style={{ fontSize: 13, lineHeight: 1.7, color: "#6B8099", margin: 0 }}>
-                      {card.body}
-                    </p>
+                    <p style={{ fontSize: 13, lineHeight: 1.7, color: "#6B8099", margin: 0 }}>{card.body}</p>
                   </div>
                 ))}
               </div>
@@ -839,131 +826,7 @@ export default function SmbLendingPage() {
 
 
         {/* ═══════════════════════════════════════════════════════════════════
-            SECTION 6 — INTEGRATIONS (dark, scrolling pills)
-        ═══════════════════════════════════════════════════════════════════ */}
-        <section
-          style={{
-            background: "#061832",
-            padding: "clamp(60px, 8vw, 90px) 24px",
-            overflow: "hidden",
-          }}
-        >
-          <style>{`
-            @keyframes smb-scroll-left  { from { transform: translateX(0); }   to { transform: translateX(-50%); } }
-            @keyframes smb-scroll-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
-          `}</style>
-
-          <div style={{ maxWidth: 1100, margin: "0 auto 48px", textAlign: "center" }}>
-            <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "#7DC4EB", marginBottom: 14 }}>Integrations</p>
-            <h2 style={{ fontSize: "clamp(22px, 3vw, 34px)", fontWeight: 700, letterSpacing: "-0.02em", lineHeight: 1.15, color: "#F5F8FC", marginBottom: 12 }}>
-              Your stack.{" "}
-              <span style={{ color: "#7DC4EB" }}>Your processors. Your call.</span>
-            </h2>
-          </div>
-
-          {[
-            { bg: "rgba(65,160,220,0.07)", border: "rgba(65,160,220,0.2)", items: ["LoanPro", "LendAPI", "Peach Finance", "Canopy"], dir: "left", speed: "60s" },
-            { bg: "rgba(125,196,235,0.06)", border: "rgba(125,196,235,0.18)", items: ["Moov", "J.P. Morgan Payments", "Stripe", "Dwolla"], dir: "right", speed: "50s" },
-            { bg: "rgba(91,184,224,0.06)", border: "rgba(91,184,224,0.18)", items: ["Experian", "TransUnion", "Equifax", "Plaid", "DocuSign"], dir: "left", speed: "65s" },
-          ].map((row) => (
-            <div key={row.dir + row.speed} style={{ marginBottom: 14, position: "relative", overflow: "hidden" }}>
-              <div style={{ position: "absolute", inset: "0 auto 0 0", width: 80, background: "linear-gradient(to right, #061832, transparent)", zIndex: 1, pointerEvents: "none" }} />
-              <div style={{ position: "absolute", inset: "0 0 0 auto", width: 80, background: "linear-gradient(to left, #061832, transparent)", zIndex: 1, pointerEvents: "none" }} />
-              <div style={{ display: "flex", width: "max-content", gap: 10, animation: `smb-scroll-${row.dir} ${row.speed} linear infinite` }}>
-                {[...row.items, ...row.items, ...row.items, ...row.items, ...row.items, ...row.items, ...row.items, ...row.items].map((item, idx) => (
-                  <div key={idx} style={{ display: "inline-flex", alignItems: "center", padding: "9px 18px", background: row.bg, border: `1px solid ${row.border}`, borderRadius: 999, flexShrink: 0, whiteSpace: "nowrap" as const }}>
-                    <span style={{ fontSize: 13, fontWeight: 500, color: "#D7DEE6" }}>{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </section>
-
-
-        {/* ═══════════════════════════════════════════════════════════════════
-            SECTION 7 — HOW IT WORKS (4 steps, timeline)
-        ═══════════════════════════════════════════════════════════════════ */}
-        <section
-          id="how-it-works"
-          style={{
-            background: "#F5F8FC",
-            padding: "clamp(80px, 10vw, 120px) 24px clamp(48px, 6vw, 72px)",
-            position: "relative",
-          }}
-        >
-          <div style={{ maxWidth: 1100, margin: "0 auto" }} className="smb-reveal">
-            <div style={{ textAlign: "center", marginBottom: 32 }}>
-              <div style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "5px 14px", borderRadius: 100, border: "1px solid rgba(65,160,220,0.2)", background: "rgba(65,160,220,0.06)", marginBottom: 16 }}>
-                <span style={{ fontSize: 11, fontWeight: 600, color: "#41A0DC", letterSpacing: "0.06em", textTransform: "uppercase" }}>How it works</span>
-              </div>
-              <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 700, lineHeight: 1.1, letterSpacing: "-0.02em", color: "#061832", marginBottom: 0 }}>
-                From friction audit to production
-                <br />
-                <span style={{ color: "#41A0DC" }}>without a vendor in the middle</span>
-              </h2>
-            </div>
-
-            <style>{`
-              .smb-how-card {
-                background: #ffffff;
-                border: 1px solid rgba(6, 24, 50, 0.08);
-                border-radius: 16px;
-                padding: clamp(20px, 3vw, 32px);
-                position: relative;
-                overflow: hidden;
-                transition:
-                  background 0.22s ease,
-                  border-color 0.22s ease,
-                  box-shadow 0.22s ease,
-                  transform 0.22s ease;
-              }
-              .smb-how-card:hover {
-                background: linear-gradient(165deg, rgba(65, 160, 220, 0.14) 0%, rgba(65, 160, 220, 0.06) 45%, rgba(255, 255, 255, 0.96) 100%);
-                border-color: rgba(65, 160, 220, 0.45);
-                box-shadow: 0 12px 40px rgba(65, 160, 220, 0.18);
-                transform: translateY(-3px);
-              }
-              .smb-how-card:hover .smb-how-card__title {
-                color: #061832;
-              }
-              .smb-how-card:hover .smb-how-card__body {
-                color: #4b5d6e;
-              }
-            `}</style>
-
-            <div className="grid grid-cols-1 md:grid-cols-4" style={{ gap: 20 }}>
-              {[
-                { num: "01", title: "Discovery & Friction Mapping", sub: "Week 1", body: "We audit your current borrower journey end-to-end — from payment portal to support queue. You walk away with a clear map of where borrowers disengage and where delinquency risk concentrates." },
-                { num: "02", title: "Platform Design", sub: "Weeks 1–2", body: "Our lending UX specialists design the borrower portal around your credit model — payment flows, notification triggers, SBA compliance requirements, and your brand." },
-                { num: "03", title: "Engineering & LMS Integration", sub: "Continuous sprints", body: "We build and integrate — connecting your LMS (LoanPro, LendAPI, or others), payment processors, and data providers. Every sprint ships working software against real loan data." },
-                { num: "04", title: "Launch & Measurement", sub: "Structured exit", body: "We launch against a live portfolio segment, measure delinquency rate and support ticket volume, and hand off the codebase — fully documented, fully owned by your team." },
-              ].map((step) => (
-                <div key={step.num} className="smb-how-card">
-                  <span style={{ display: "inline-block", fontSize: 10, fontWeight: 700, color: "#41A0DC", background: "rgba(65,160,220,0.1)", padding: "3px 10px", borderRadius: 100, marginBottom: 16, letterSpacing: "0.06em" }}>
-                    {step.sub}
-                  </span>
-                  <h3 className="smb-how-card__title" style={{ fontSize: 16, fontWeight: 600, color: "#061832", marginBottom: 10, lineHeight: 1.3, transition: "color 0.22s ease" }}>
-                    {step.title}
-                  </h3>
-                  <p className="smb-how-card__body" style={{ fontSize: 13, lineHeight: 1.75, color: "#6B8099", margin: 0, transition: "color 0.22s ease" }}>
-                    {step.body}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            <div style={{ textAlign: "center", marginTop: 48 }}>
-              <a href="#contact" className="smb-btn-primary">
-                Get a Friction Audit
-              </a>
-            </div>
-          </div>
-        </section>
-
-
-        {/* ═══════════════════════════════════════════════════════════════════
-            SECTION 8 — CLIENTS (bg alinhado ao FAQ)
+            CLIENTS
         ═══════════════════════════════════════════════════════════════════ */}
         <section
           id="clients"
@@ -1063,6 +926,19 @@ export default function SmbLendingPage() {
               </div>
             </div>
           </div>
+        </section>
+
+
+        {/* ═══════════════════════════════════════════════════════════════════
+            CONNECTING LENDERS (stat counters)
+        ═══════════════════════════════════════════════════════════════════ */}
+        <section
+          style={{
+            background: "linear-gradient(180deg, #FFFFFF 0%, #E8ECEF 30%, #E8ECEF 70%, #F5F8FC 100%)",
+            padding: "clamp(32px, 4vw, 48px) 24px",
+          }}
+        >
+          <SmbStatCounters />
         </section>
 
 

@@ -4,44 +4,24 @@ import { useState } from "react";
 
 const faqs = [
   {
-    q: "Do you build on top of any LMS?",
-    a: "Yes. We integrate with your existing LMS, including LoanPro, LendAPI, or others via API. Your LMS remains the system of record while we build the borrower experience and servicing layer around it.",
+    q: "Do you build on top of any systems?",
+    a: "Yes. We integrate with your existing stack — core banking, LMS, KYC providers, and underwriting tools — and build the origination layer around it.",
   },
   {
-    q: "We already have a borrower portal. Why rebuild?",
-    a: "Most portals we audit have the same gaps: no proactive outreach, limited payment flows, and delayed LMS sync. Fixing that on top of an off-the-shelf platform is slow and constrained. A custom build gets you there faster and you own it.",
+    q: "We already have an application flow. Why rebuild?",
+    a: "Most flows we audit are too long, not mobile-first, and lack transparency. Improving that within existing platforms is slow and limited. A custom build improves conversion faster.",
   },
   {
     q: "How does codebase ownership work?",
-    a: "You get the full source code. No vendor license, no lock-in. Your team can modify, deploy, and maintain independently. We document the system and support the transition.",
+    a: "You get the full source code. No vendor lock-in. Your team can modify and deploy independently.",
   },
   {
     q: "What does the 8–16 week timeline include?",
-    a: "Discovery, design, build, and launch. At 8 weeks, a scoped MVP running on a live portfolio segment. At 16 weeks, a full production platform with integrations, reporting, and proactive outreach.",
+    a: "Discovery, design, build, and launch. MVP in weeks, full platform shortly after.",
   },
   {
     q: "Why not build this in-house?",
-    a: "You can, but it typically takes 12–18 months and significant upfront cost. We've already built this stack including LMS integrations, compliance layers, and payment flows, so you skip the learning curve and go live faster.",
-  },
-  {
-    q: "What happens after launch?",
-    a: "You own the platform. Your team can continue evolving it internally, or we can support ongoing development depending on your preference.",
-  },
-  {
-    q: "How do you handle support and maintenance?",
-    a: "Flexible. We can hand off fully to your team or stay involved with ongoing support, improvements, and new features.",
-  },
-  {
-    q: "Can this replace multiple vendors?",
-    a: "In many cases, yes. A custom servicing platform can consolidate borrower portal, communication layer, and parts of your servicing workflows, reducing vendor sprawl.",
-  },
-  {
-    q: "How do you ensure security and compliance?",
-    a: "We build for regulated environments from day one, including secure architecture, auditability, and alignment with requirements like SBA, Dodd-Frank 1071, and ECOA.",
-  },
-  {
-    q: "What if our workflows are complex or non-standard?",
-    a: "That's exactly when custom makes the most sense. We design around your credit model, products, and operations instead of forcing you into predefined structures.",
+    a: "You can, but it typically takes 12–18 months. We've already built these systems and integrations, so you go live faster.",
   },
 ];
 

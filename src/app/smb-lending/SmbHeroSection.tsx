@@ -31,7 +31,7 @@ export default function SmbHeroSection({ basePath }: { basePath: string }) {
           style={{ display: "inline-flex", alignItems: "center", padding: "6px 16px", borderRadius: 100, border: "1px solid rgba(65,160,220,0.25)", background: "rgba(65,160,220,0.08)", marginBottom: 32 }}
         >
           <span style={{ fontSize: 11, fontWeight: 600, color: "#7DC4EB", letterSpacing: "0.08em", textTransform: "uppercase" }}>
-            Custom Loan Servicing for SMB Lenders
+            Custom Loan Origination for SMB Lenders
           </span>
         </motion.div>
 
@@ -48,8 +48,8 @@ export default function SmbHeroSection({ basePath }: { basePath: string }) {
             margin: "0 0 24px",
           }}
         >
-          Your off-the-shelf servicing platform{" "}
-          <span style={{ color: "#7DC4EB" }}>is costing you payments.</span>
+          Your off-the-shelf origination platform{" "}
+          <span style={{ color: "#7DC4EB" }}>is costing you applications.</span>
         </motion.h1>
 
         <motion.p
@@ -64,7 +64,7 @@ export default function SmbHeroSection({ basePath }: { basePath: string }) {
             maxWidth: 720,
           }}
         >
-          Generic tools create friction. Friction turns into delinquency. We build custom servicing platforms for SMB and SBA lenders — integrated with your LMS, designed for your credit model, and&nbsp;fully&nbsp;under&nbsp;your&nbsp;control.
+          Generic tools create friction. Friction kills conversion. We build custom loan origination platforms for SMB and SBA lenders — integrated with your systems, designed for your credit model, and&nbsp;fully&nbsp;under&nbsp;your&nbsp;control.
         </motion.p>
 
         <motion.div
@@ -103,7 +103,7 @@ export default function SmbHeroSection({ basePath }: { basePath: string }) {
             }
           `}</style>
           <img
-            src={`${basePath}/application-mockup.png`}
+            src={`${basePath}/originationmockup.png`}
             alt="Application mockup"
             style={{
               width: "100%",

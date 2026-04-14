@@ -17,13 +17,13 @@ const smb = {
 } as const;
 
 const rows = [
-  { feature: "Built for SMB borrower behavior",      saas: [false, "✗"], legacy: [false, "✗"], clara: [true, "✓"] },
-  { feature: "Real-time LMS data sync",              saas: [null, "Partial"], legacy: [null, "Partial"], clara: [true, "✓"] },
-  { feature: "Proactive delinquency outreach",       saas: [false, "✗"], legacy: [false, "✗"], clara: [true, "✓"] },
-  { feature: "SBA 7(a) / 504 workflow support",      saas: [false, "✗"], legacy: [null, "Varies"], clara: [true, "✓"] },
+  { feature: "Built for your credit model",          saas: [false, "✗"], legacy: [false, "✗"], clara: [true, "✓"] },
+  { feature: "Real-time data sync",                  saas: [null, "Partial"], legacy: [null, "Partial"], clara: [true, "✓"] },
+  { feature: "Application flow flexibility",         saas: [false, "✗"], legacy: [false, "✗"], clara: [true, "✓"] },
+  { feature: "Decisioning integration",              saas: [false, "✗"], legacy: [null, "Varies"], clara: [true, "✓"] },
   { feature: "Codebase ownership",                   saas: [false, "✗ License"], legacy: [true, "✓"], clara: [true, "✓"] },
   { feature: "Customizable without vendor approval", saas: [false, "✗"], legacy: [null, "Slow"], clara: [true, "✓"] },
-  { feature: "Mobile-first borrower portal",         saas: [null, "Partial"], legacy: [false, "✗"], clara: [true, "✓"] },
+  { feature: "Mobile-first application flow",        saas: [null, "Partial"], legacy: [false, "✗"], clara: [true, "✓"] },
   { feature: "Delivery timeline",                    saas: [false, "6–12 months"], legacy: [false, "12–24 months"], clara: [true, "8–16 weeks"] },
 ] as const;
 
