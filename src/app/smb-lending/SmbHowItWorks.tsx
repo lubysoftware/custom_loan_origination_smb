@@ -38,7 +38,7 @@ export default function SmbHowItWorks() {
       style={{
         position: "relative",
         background: "#F5F8FC",
-        borderTop: "1px solid rgba(31,46,61,0.08)",
+        borderTop: "1px solid rgba(6,24,50,0.08)",
         padding: "100px 24px",
         overflow: "hidden",
       }}
@@ -66,14 +66,14 @@ export default function SmbHowItWorks() {
           transform: "translateX(-50%)",
           width: 700,
           height: 500,
-          background: "radial-gradient(ellipse at center, rgba(82,122,158,0.1) 0%, transparent 65%)",
+          background: "radial-gradient(ellipse at center, rgba(65,160,220,0.08) 0%, transparent 65%)",
           pointerEvents: "none",
         }}
       />
 
       <div style={{ position: "relative", maxWidth: 1000, margin: "0 auto" }} className="smb-reveal">
         {/* heading */}
-        <div style={{ textAlign: "center", marginBottom: 72 }}>
+        <div style={{ textAlign: "center", marginBottom: 32 }}>
           <div
             style={{
               display: "inline-flex",
@@ -83,12 +83,12 @@ export default function SmbHowItWorks() {
               fontWeight: 600,
               letterSpacing: "0.08em",
               textTransform: "uppercase",
-              color: "#527A9E",
-              background: "rgba(82,122,158,0.1)",
-              border: "1px solid rgba(82,122,158,0.2)",
+              color: "#41A0DC",
+              background: "rgba(65,160,220,0.08)",
+              border: "1px solid rgba(65,160,220,0.2)",
               padding: "4px 12px",
               borderRadius: 100,
-              marginBottom: 20,
+              marginBottom: 16,
             }}
           >
             How it works
@@ -99,13 +99,13 @@ export default function SmbHowItWorks() {
               fontWeight: 700,
               letterSpacing: "-0.03em",
               lineHeight: 1.1,
-              color: "#1F2E3D",
-              marginBottom: 16,
+              color: "#061832",
+              marginBottom: 0,
             }}
           >
-            From friction audit to production platform —{" "}
+            From friction audit to production
             <br />
-            <span style={{ color: "#527A9E" }}>without a vendor in the middle</span>
+            <span style={{ color: "#41A0DC" }}>without a vendor in the middle</span>
           </h2>
           <p
             style={{
@@ -139,7 +139,7 @@ export default function SmbHowItWorks() {
                 left: "calc(12.5%)",
                 right: "calc(12.5%)",
                 height: 1,
-                background: "linear-gradient(to right, #527A9E 0%, rgba(82,122,158,0.2) 100%)",
+                background: "linear-gradient(to right, #41A0DC 0%, rgba(65,160,220,0.2) 100%)",
               }}
             />
             {steps.map((s, i) => (
@@ -154,20 +154,20 @@ export default function SmbHowItWorks() {
                     width: 44,
                     height: 44,
                     borderRadius: "50%",
-                    background: active === i ? "#1F2E3D" : "#FFFFFF",
-                    border: active === i ? "2px solid #527A9E" : "1px solid rgba(82,122,158,0.35)",
+                    background: active === i ? "#061832" : "#FFFFFF",
+                    border: active === i ? "2px solid #41A0DC" : "1px solid rgba(65,160,220,0.3)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
                     fontSize: 12,
                     fontWeight: 700,
-                    color: active === i ? "#fff" : "#527A9E",
+                    color: active === i ? "#fff" : "#41A0DC",
                     letterSpacing: "0.04em",
                     position: "relative",
                     zIndex: 1,
                     cursor: "default",
                     transition: "background 0.2s, border-color 0.2s, color 0.2s",
-                    boxShadow: active === i ? "0 0 20px rgba(82,122,158,0.4)" : "none",
+                    boxShadow: active === i ? "0 0 20px rgba(65,160,220,0.35)" : "none",
                   }}
                 >
                   {s.num}
@@ -190,8 +190,8 @@ export default function SmbHowItWorks() {
                   transition: "background 0.2s, box-shadow 0.2s, transform 0.2s",
                   transform: active === i ? "translateY(-3px)" : "translateY(0)",
                   boxShadow: active === i
-                    ? "0 10px 36px rgba(31,46,61,0.12), inset 0 0 0 1px rgba(82,122,158,0.35)"
-                    : "inset 0 0 0 1px rgba(31,46,61,0.1)",
+                    ? "0 10px 36px rgba(6,24,50,0.12), inset 0 0 0 1px rgba(65,160,220,0.3)"
+                    : "inset 0 0 0 1px rgba(6,24,50,0.1)",
                   cursor: "default",
                 }}
               >
@@ -202,9 +202,9 @@ export default function SmbHowItWorks() {
                     fontWeight: 600,
                     letterSpacing: "0.05em",
                     textTransform: "uppercase",
-                    color: "#527A9E",
-                    background: "rgba(82,122,158,0.1)",
-                    border: "1px solid rgba(82,122,158,0.18)",
+                    color: "#41A0DC",
+                    background: "rgba(65,160,220,0.08)",
+                    border: "1px solid rgba(65,160,220,0.18)",
                     padding: "2px 8px",
                     borderRadius: 100,
                     marginBottom: 12,
@@ -217,7 +217,7 @@ export default function SmbHowItWorks() {
                     fontSize: 15,
                     fontWeight: 600,
                     letterSpacing: "-0.015em",
-                    color: "#1F2E3D",
+                    color: "#061832",
                     marginBottom: 10,
                     lineHeight: 1.35,
                   }}
@@ -241,7 +241,7 @@ export default function SmbHowItWorks() {
               top: 22,
               bottom: 22,
               width: 1,
-              background: "linear-gradient(to bottom, #527A9E 0%, rgba(82,122,158,0.1) 100%)",
+              background: "linear-gradient(to bottom, #41A0DC 0%, rgba(65,160,220,0.08) 100%)",
             }}
           />
           {steps.map((s, i) => (
@@ -253,13 +253,13 @@ export default function SmbHowItWorks() {
                   height: 44,
                   borderRadius: "50%",
                   background: "#FFFFFF",
-                  border: "1px solid rgba(82,122,158,0.35)",
+                  border: "1px solid rgba(65,160,220,0.3)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   fontSize: 12,
                   fontWeight: 700,
-                  color: "#527A9E",
+                  color: "#41A0DC",
                   position: "relative",
                   zIndex: 1,
                 }}
@@ -272,7 +272,7 @@ export default function SmbHowItWorks() {
                   background: "#FFFFFF",
                   borderRadius: 14,
                   padding: "20px 20px 24px",
-                  boxShadow: "inset 0 0 0 1px rgba(31,46,61,0.1)",
+                  boxShadow: "inset 0 0 0 1px rgba(6,24,50,0.1)",
                 }}
               >
                 <span
@@ -282,9 +282,9 @@ export default function SmbHowItWorks() {
                     fontWeight: 600,
                     letterSpacing: "0.05em",
                     textTransform: "uppercase",
-                    color: "#527A9E",
-                    background: "rgba(82,122,158,0.1)",
-                    border: "1px solid rgba(82,122,158,0.18)",
+                    color: "#41A0DC",
+                    background: "rgba(65,160,220,0.08)",
+                    border: "1px solid rgba(65,160,220,0.18)",
                     padding: "2px 8px",
                     borderRadius: 100,
                     marginBottom: 10,
@@ -292,7 +292,7 @@ export default function SmbHowItWorks() {
                 >
                   {s.sub}
                 </span>
-                <h3 style={{ fontSize: 15, fontWeight: 600, color: "#1F2E3D", marginBottom: 8, lineHeight: 1.35 }}>
+                <h3 style={{ fontSize: 15, fontWeight: 600, color: "#061832", marginBottom: 8, lineHeight: 1.35 }}>
                   {s.title}
                 </h3>
                 <p style={{ fontSize: 13, lineHeight: 1.75, color: "#6B8099", margin: 0 }}>
@@ -316,10 +316,10 @@ export default function SmbHowItWorks() {
               fontWeight: 600,
               color: "#F5F8FC",
               textDecoration: "none",
-              background: "#1F2E3D",
+              background: "#061832",
               borderRadius: 10,
-              border: "1px solid rgba(82,122,158,0.2)",
-              boxShadow: "0 2px 12px rgba(31,46,61,0.2)",
+              border: "1px solid rgba(65,160,220,0.2)",
+              boxShadow: "0 2px 12px rgba(6,24,50,0.2)",
             }}
           >
             Get a Friction Audit

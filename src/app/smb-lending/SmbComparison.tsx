@@ -2,6 +2,20 @@
 
 import { useState } from "react";
 
+/** Paleta alinhada à landing SMB (tons padrão) */
+const smb = {
+  ink: "#061832",
+  muted: "#6B8099",
+  accent: "#41A0DC",
+  border: "rgba(6,24,50,0.08)",
+  borderLight: "rgba(6,24,50,0.06)",
+  lubyHeader: "#061832",
+  lubyColTint: "rgba(65,160,220,0.1)",
+  rowStripe: "#F8FAFC",
+  rowHover: "rgba(6,24,50,0.04)",
+  shadow: "0 2px 20px rgba(6,24,50,0.06)",
+} as const;
+
 const rows = [
   { feature: "Built for SMB borrower behavior",      saas: [false, "✗"], legacy: [false, "✗"], clara: [true, "✓"] },
   { feature: "Real-time LMS data sync",              saas: [null, "Partial"], legacy: [null, "Partial"], clara: [true, "✓"] },
@@ -25,6 +39,102 @@ function valueDot(ok: boolean | null): string {
   return "rgba(217,119,6,0.12)";
 }
 
+/** Ícone ✓ — círculo suave + traço nítido (substitui o caractere Unicode) */
+function IconCheck() {
+  return (
+    <span
+      aria-hidden
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        justifyContent: "center",
+        width: 24,
+        height: 24,
+        borderRadius: "50%",
+        background: "rgba(22,163,74,0.14)",
+        flexShrink: 0,
+      }}
+    >
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <path
+          d="M2.5 7L5.5 10L11.5 3.5"
+          stroke="#15803D"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </span>
+  );
+}
+
+/** Ícone ✗ — círculo suave + X nítido */
+function IconX() {
+  return (
+    <span
+      aria-hidden
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        justifyContent: "center",
+        width: 24,
+        height: 24,
+        borderRadius: "50%",
+        background: "rgba(220,38,38,0.12)",
+        flexShrink: 0,
+      }}
+    >
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+        <path
+          d="M2.5 2.5L7.5 7.5M7.5 2.5L2.5 7.5"
+          stroke="#B91C1C"
+          strokeWidth="1.75"
+          strokeLinecap="round"
+        />
+      </svg>
+    </span>
+  );
+}
+
+function renderCellValue(ok: boolean | null, label: string) {
+  const t = label.trim();
+
+  if (t === "✓") {
+    return <IconCheck />;
+  }
+  if (t === "✗") {
+    return <IconX />;
+  }
+  if (t.startsWith("✗ ")) {
+    return (
+      <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8 }}>
+        <IconX />
+        <span style={{ fontSize: 12, fontWeight: 600, color: "#B91C1C" }}>{t.slice(2).trim()}</span>
+      </span>
+    );
+  }
+  if (t.startsWith("✓ ")) {
+    return (
+      <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8 }}>
+        <IconCheck />
+        <span style={{ fontSize: 12, fontWeight: 600, color: "#15803D" }}>{t.slice(2).trim()}</span>
+      </span>
+    );
+  }
+
+  return (
+    <span
+      style={{
+        fontSize: 12,
+        fontWeight: 600,
+        color: valueColor(ok),
+      }}
+    >
+      {label}
+    </span>
+  );
+}
+
 export default function SmbComparison() {
   const [hoveredRow, setHoveredRow] = useState<number | null>(null);
 
@@ -38,8 +148,8 @@ export default function SmbComparison() {
           borderSpacing: 0,
           borderRadius: 16,
           overflow: "hidden",
-          border: "1px solid rgba(0,0,0,0.09)",
-          boxShadow: "0 2px 24px rgba(0,0,0,0.07)",
+          border: `1px solid ${smb.border}`,
+          boxShadow: smb.shadow,
         }}
       >
         <thead>
@@ -52,8 +162,8 @@ export default function SmbComparison() {
                 fontWeight: 600,
                 letterSpacing: "0.07em",
                 textTransform: "uppercase",
-                color: "#999490",
-                borderBottom: "1px solid rgba(0,0,0,0.08)",
+                color: smb.muted,
+                borderBottom: `1px solid ${smb.border}`,
                 width: "36%",
               }}
             >
@@ -69,13 +179,17 @@ export default function SmbComparison() {
                   fontWeight: 600,
                   letterSpacing: "0.07em",
                   textTransform: "uppercase",
-                  color: i === 2 ? "#FFFFFF" : "#9EB7D6",
-                  borderBottom: "1px solid rgba(0,0,0,0.08)",
-                  background: i === 2 ? "#527A9E" : "#FFFFFF",
-                  borderLeft: "1px solid rgba(0,0,0,0.06)",
+                  color: i === 2 ? "#FFFFFF" : smb.muted,
+                  borderBottom: `1px solid ${smb.border}`,
+                  background: i === 2 ? smb.lubyHeader : "#FFFFFF",
+                  borderLeft: `1px solid ${smb.borderLight}`,
                 }}
               >
-                {i === 2 ? <div style={{ padding: "16px 20px" }}>{col}</div> : col}
+                {i === 2 ? (
+                  <div style={{ padding: "16px 20px", color: "#FFFFFF", letterSpacing: "0.08em" }}>{col}</div>
+                ) : (
+                  col
+                )}
               </th>
             ))}
           </tr>
@@ -87,7 +201,8 @@ export default function SmbComparison() {
               onMouseEnter={() => setHoveredRow(i)}
               onMouseLeave={() => setHoveredRow(null)}
               style={{
-                background: hoveredRow === i ? "#EDECEA" : i % 2 === 0 ? "#FAFAF8" : "#FFFFFF",
+                background:
+                  hoveredRow === i ? smb.rowHover : i % 2 === 0 ? smb.rowStripe : "#FFFFFF",
                 transition: "background 0.15s",
                 cursor: "default",
               }}
@@ -97,41 +212,48 @@ export default function SmbComparison() {
                   padding: "14px 24px",
                   fontSize: 13,
                   fontWeight: 500,
-                  color: "#2A2522",
-                  borderBottom: i < rows.length - 1 ? "1px solid rgba(0,0,0,0.06)" : "none",
+                  color: smb.ink,
+                  borderBottom: i < rows.length - 1 ? `1px solid ${smb.borderLight}` : "none",
                 }}
               >
                 {row.feature}
               </td>
-              {([row.saas, row.legacy, row.clara] as const).map((cell, ci) => (
-                <td
-                  key={ci}
-                  style={{
-                    padding: "14px 20px",
-                    textAlign: "center",
-                    borderBottom: i < rows.length - 1 ? "1px solid rgba(0,0,0,0.06)" : "none",
-                    borderLeft: "1px solid rgba(0,0,0,0.05)",
-                    background: ci === 2 ? "rgba(82,122,158,0.06)" : "transparent",
-                  }}
-                >
-                  <span
+              {([row.saas, row.legacy, row.clara] as const).map((cell, ci) => {
+                const label = String(cell[1]);
+                const trimmed = label.trim();
+                const iconOnly = trimmed === "✓" || trimmed === "✗";
+                const ok = cell[0] as boolean | null;
+                return (
+                  <td
+                    key={ci}
                     style={{
-                      display: "inline-flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      gap: 5,
-                      fontSize: 12,
-                      fontWeight: 600,
-                      color: valueColor(cell[0] as boolean | null),
-                      background: valueDot(cell[0] as boolean | null),
-                      padding: "3px 10px",
-                      borderRadius: 100,
+                      padding: "14px 20px",
+                      textAlign: "center",
+                      borderBottom: i < rows.length - 1 ? `1px solid ${smb.borderLight}` : "none",
+                      borderLeft: `1px solid ${smb.borderLight}`,
+                      background: ci === 2 ? smb.lubyColTint : "transparent",
                     }}
                   >
-                    {cell[1]}
-                  </span>
-                </td>
-              ))}
+                    <span
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        gap: 5,
+                        minHeight: 30,
+                        fontSize: 12,
+                        fontWeight: 600,
+                        color: valueColor(ok),
+                        background: iconOnly ? "transparent" : valueDot(ok),
+                        padding: iconOnly ? 0 : "4px 12px",
+                        borderRadius: 100,
+                      }}
+                    >
+                      {renderCellValue(ok, label)}
+                    </span>
+                  </td>
+                );
+              })}
             </tr>
           ))}
         </tbody>

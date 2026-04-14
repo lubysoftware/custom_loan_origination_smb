@@ -30,7 +30,7 @@ export default function SmbClients() {
       id="clients"
       style={{
         background: "#08121e",
-        borderTop: "1px solid rgba(82,122,158,0.15)",
+        borderTop: "1px solid rgba(65,160,220,0.15)",
         padding: "clamp(64px, 8vw, 100px) 24px",
       }}
     >
@@ -47,9 +47,9 @@ export default function SmbClients() {
               fontWeight: 600,
               letterSpacing: "0.12em",
               textTransform: "uppercase",
-              color: "#9EB7D6",
-              background: "rgba(82,122,158,0.1)",
-              border: "1px solid rgba(82,122,158,0.2)",
+              color: "#7DC4EB",
+              background: "rgba(65,160,220,0.08)",
+              border: "1px solid rgba(65,160,220,0.2)",
               padding: "4px 12px",
               borderRadius: 999,
               marginBottom: 20,
@@ -73,8 +73,8 @@ export default function SmbClients() {
             <br />
             <span
               style={{
-                color: "#9EB7D6",
-                textShadow: "0 0 24px rgba(158,183,214,0.5), 0 0 48px rgba(158,183,214,0.2)",
+                color: "#7DC4EB",
+                textShadow: "0 0 24px rgba(65,160,220,0.4), 0 0 48px rgba(65,160,220,0.2)",
               }}
             >
               modernized with Luby
@@ -84,7 +84,7 @@ export default function SmbClients() {
             style={{
               fontSize: 15,
               lineHeight: 1.75,
-              color: "rgba(158,183,214,0.7)",
+              color: "rgba(125,196,235,0.6)",
               margin: "0 auto",
               maxWidth: 500,
               fontFamily: "var(--font-inter), sans-serif",
@@ -116,7 +116,7 @@ export default function SmbClients() {
               key={c.file}
               style={{
                 background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(82,122,158,0.15)",
+                border: "1px solid rgba(65,160,220,0.15)",
                 borderRadius: 12,
                 height: 100,
                 padding: 16,
@@ -127,11 +127,11 @@ export default function SmbClients() {
               }}
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.08)";
-                (e.currentTarget as HTMLElement).style.borderColor = "rgba(82,122,158,0.35)";
+                (e.currentTarget as HTMLElement).style.borderColor = "rgba(65,160,220,0.3)";
               }}
               onMouseLeave={(e) => {
                 (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.04)";
-                (e.currentTarget as HTMLElement).style.borderColor = "rgba(82,122,158,0.15)";
+                (e.currentTarget as HTMLElement).style.borderColor = "rgba(65,160,220,0.15)";
               }}
             >
               <img
@@ -177,8 +177,8 @@ export default function SmbClients() {
               style={{
                 textAlign: "center",
                 padding: "24px 16px",
-                background: "rgba(82,122,158,0.06)",
-                border: "1px solid rgba(82,122,158,0.15)",
+                background: "rgba(65,160,220,0.06)",
+                border: "1px solid rgba(65,160,220,0.15)",
                 borderRadius: 16,
               }}
             >
@@ -186,11 +186,11 @@ export default function SmbClients() {
                 style={{
                   fontSize: "clamp(32px, 4vw, 44px)",
                   fontWeight: 700,
-                  color: "#9EB7D6",
+                  color: "#7DC4EB",
                   lineHeight: 1,
                   marginBottom: 8,
                   fontFamily: "var(--font-inter), sans-serif",
-                  textShadow: "0 0 20px rgba(158,183,214,0.4)",
+                  textShadow: "0 0 20px rgba(65,160,220,0.35)",
                 }}
               >
                 {s.number}
@@ -198,7 +198,7 @@ export default function SmbClients() {
               <div
                 style={{
                   fontSize: 13,
-                  color: "rgba(158,183,214,0.6)",
+                  color: "rgba(125,196,235,0.5)",
                   lineHeight: 1.4,
                   fontFamily: "var(--font-inter), sans-serif",
                 }}

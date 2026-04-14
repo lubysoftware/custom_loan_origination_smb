@@ -3,10 +3,10 @@
 import { useState, useEffect } from "react";
 
 const navLinks = [
-  { label: "The Problem",    href: "#problem" },
+  { label: "Solution",       href: "#problem" },
   { label: "How It Works",   href: "#how-it-works" },
   { label: "Why Luby",       href: "#why-luby" },
-  { label: "In Production",  href: "#in-production" },
+  { label: "Production",     href: "#in-production" },
   { label: "FAQ",            href: "#faq" },
 ];
 
@@ -29,11 +29,9 @@ export default function SmbNavbar() {
         right: 0,
         zIndex: 50,
         transition: "background 0.3s, border-color 0.3s, box-shadow 0.3s",
-        background: scrolled ? "rgba(10,20,32,0.88)" : "transparent",
-        backdropFilter: scrolled ? "blur(20px)" : "none",
-        WebkitBackdropFilter: scrolled ? "blur(20px)" : "none",
-        borderBottom: scrolled ? "1px solid rgba(82,122,158,0.15)" : "1px solid transparent",
-        boxShadow: scrolled ? "0 1px 32px rgba(0,0,0,0.4)" : "none",
+        background: "#061832",
+        borderBottom: "1px solid rgba(255,255,255,0.06)",
+        boxShadow: scrolled ? "0 2px 16px rgba(0,0,0,0.3)" : "none",
       }}
     >
       <nav
@@ -52,7 +50,11 @@ export default function SmbNavbar() {
           <img
             src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logoluby.svg`}
             alt="Luby"
-            style={{ height: 40, width: "auto", filter: "brightness(0) invert(1)" }}
+            style={{
+              height: 36,
+              width: "auto",
+              filter: "brightness(0) invert(1)",
+            }}
           />
         </a>
 
@@ -65,6 +67,7 @@ export default function SmbNavbar() {
             <li key={l.href}>
               <a
                 href={l.href}
+                className="smb-nav-link"
                 style={{
                   fontSize: 13,
                   fontWeight: 500,
@@ -72,18 +75,15 @@ export default function SmbNavbar() {
                   textDecoration: "none",
                   padding: "6px 12px",
                   borderRadius: 6,
-                  transition: "color 0.15s, background 0.15s",
+                  transition: "color 0.15s ease",
                   fontFamily: "var(--font-inter), sans-serif",
-                  letterSpacing: "0.03em",
-                  textTransform: "uppercase",
+                  letterSpacing: "0.02em",
                 }}
                 onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.color = "#F5F8FC";
-                  (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.07)";
+                  (e.currentTarget as HTMLElement).style.color = "#41A0DC";
                 }}
                 onMouseLeave={(e) => {
                   (e.currentTarget as HTMLElement).style.color = "rgba(215,222,230,0.75)";
-                  (e.currentTarget as HTMLElement).style.background = "transparent";
                 }}
               >
                 {l.label}
@@ -101,16 +101,14 @@ export default function SmbNavbar() {
             fontWeight: 600,
             color: "#FFFFFF",
             textDecoration: "none",
-            background: "#527A9E",
-            padding: "7px 18px",
+            background: "#41A0DC",
+            padding: "8px 20px",
             borderRadius: 8,
             transition: "background 0.15s",
             fontFamily: "var(--font-inter), sans-serif",
-            letterSpacing: "0.04em",
-            textTransform: "uppercase",
           }}
-          onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#3D6B8E")}
-          onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "#527A9E")}
+          onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#2E8AB8")}
+          onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "#41A0DC")}
         >
           Schedule a Call
         </a>
@@ -138,7 +136,7 @@ export default function SmbNavbar() {
                 height: 1.5,
                 background: "#F5F8FC",
                 borderRadius: 2,
-                transition: "transform 0.2s, opacity 0.2s",
+                transition: "transform 0.2s, opacity 0.2s, background 0.3s",
                 transform:
                   menuOpen && i === 0 ? "translateY(6.5px) rotate(45deg)" :
                   menuOpen && i === 2 ? "translateY(-6.5px) rotate(-45deg)" : "none",
@@ -153,11 +151,12 @@ export default function SmbNavbar() {
       <div
         className="md:hidden"
         style={{
-          maxHeight: menuOpen ? 320 : 0,
+          maxHeight: menuOpen ? 360 : 0,
           overflow: "hidden",
           transition: "max-height 0.3s ease",
-          background: "rgba(10,20,32,0.97)",
-          borderBottom: menuOpen ? "1px solid rgba(82,122,158,0.15)" : "none",
+          background: "#061832",
+          borderBottom: menuOpen ? "1px solid rgba(255,255,255,0.06)" : "none",
+          boxShadow: menuOpen ? "0 8px 24px rgba(0,0,0,0.3)" : "none",
         }}
       >
         <ul style={{ listStyle: "none", margin: 0, padding: "12px 24px 20px", display: "flex", flexDirection: "column", gap: 2 }}>
@@ -168,15 +167,20 @@ export default function SmbNavbar() {
                 onClick={() => setMenuOpen(false)}
                 style={{
                   display: "block",
-                  padding: "10px 0",
-                  fontSize: 13,
+                  padding: "12px 0",
+                  fontSize: 14,
                   fontWeight: 500,
                   color: "rgba(215,222,230,0.8)",
                   textDecoration: "none",
-                  borderBottom: "1px solid rgba(82,122,158,0.15)",
+                  borderBottom: "1px solid rgba(255,255,255,0.06)",
                   fontFamily: "var(--font-inter), sans-serif",
-                  letterSpacing: "0.04em",
-                  textTransform: "uppercase",
+                  transition: "color 0.15s ease",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.color = "#41A0DC";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.color = "rgba(215,222,230,0.8)";
                 }}
               >
                 {l.label}
@@ -190,12 +194,12 @@ export default function SmbNavbar() {
               style={{
                 display: "block",
                 textAlign: "center",
-                padding: "11px 0",
-                fontSize: 13,
+                padding: "12px 0",
+                fontSize: 14,
                 fontWeight: 600,
                 color: "#FFFFFF",
                 textDecoration: "none",
-                background: "#527A9E",
+                background: "#41A0DC",
                 borderRadius: 8,
               }}
             >

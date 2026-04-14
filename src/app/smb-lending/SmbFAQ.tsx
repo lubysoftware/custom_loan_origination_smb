@@ -51,12 +51,12 @@ function Item({ q, a }: { q: string; a: string }) {
     <div
       style={{
         background: "#FFFFFF",
-        border: "1px solid rgba(31,46,61,0.1)",
+        border: "1px solid rgba(6,24,50,0.1)",
         borderRadius: 12,
         marginBottom: 8,
         overflow: "hidden",
         transition: "border-color 0.2s",
-        borderColor: open ? "rgba(82,122,158,0.2)" : "rgba(31,46,61,0.1)",
+        borderColor: open ? "rgba(65,160,220,0.2)" : "rgba(6,24,50,0.1)",
       }}
     >
       <button
@@ -79,7 +79,7 @@ function Item({ q, a }: { q: string; a: string }) {
             fontSize: 14,
             fontWeight: 500,
             letterSpacing: "-0.01em",
-            color: open ? "#1F2E3D" : "#527A9E",
+            color: open ? "#061832" : "#527A9E",
             lineHeight: 1.5,
             transition: "color 0.15s",
           }}
@@ -92,7 +92,7 @@ function Item({ q, a }: { q: string; a: string }) {
             width: 22,
             height: 22,
             borderRadius: "50%",
-            border: `1px solid ${open ? "rgba(82,122,158,0.4)" : "rgba(31,46,61,0.2)"}`,
+            border: `1px solid ${open ? "rgba(82,122,158,0.4)" : "rgba(6,24,50,0.2)"}`,
             display: "inline-flex",
             alignItems: "center",
             justifyContent: "center",
@@ -116,17 +116,17 @@ function Item({ q, a }: { q: string; a: string }) {
 }
 
 export default function SmbFAQ() {
+  const mid = Math.ceil(faqs.length / 2);
+  const faqsColLeft = faqs.slice(0, mid);
+  const faqsColRight = faqs.slice(mid);
+
   return (
     <section
       id="faq"
-      style={{ background: "#F5F8FC", padding: "100px 24px" }}
+      style={{ background: "#F5F8FC", padding: "clamp(48px, 6vw, 72px) 24px 100px" }}
     >
-      <div
-        style={{ maxWidth: 1000, margin: "0 auto" }}
-        className="grid grid-cols-1 md:grid-cols-2"
-      >
-        {/* left */}
-        <div className="md:pr-12" style={{ paddingRight: 0 }}>
+      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+        <header style={{ textAlign: "center", margin: "0 auto 44px", maxWidth: 640 }}>
           <div
             style={{
               display: "inline-flex",
@@ -136,9 +136,9 @@ export default function SmbFAQ() {
               fontWeight: 600,
               letterSpacing: "0.08em",
               textTransform: "uppercase",
-              color: "#527A9E",
-              background: "rgba(82,122,158,0.1)",
-              border: "1px solid rgba(82,122,158,0.2)",
+              color: "#41A0DC",
+              background: "rgba(65,160,220,0.08)",
+              border: "1px solid rgba(65,160,220,0.2)",
               padding: "4px 12px",
               borderRadius: 100,
               marginBottom: 20,
@@ -152,23 +152,45 @@ export default function SmbFAQ() {
               fontWeight: 700,
               letterSpacing: "-0.03em",
               lineHeight: 1.1,
-              color: "#1F2E3D",
+              color: "#061832",
               marginBottom: 16,
             }}
           >
             Straight answers{" "}
-            <span style={{ color: "#527A9E" }}>before the conversation</span>
+            <span style={{ color: "#41A0DC" }}>before the conversation</span>
           </h2>
           <p style={{ fontSize: 14, lineHeight: 1.75, color: "#7A8FA3", margin: 0 }}>
             What SMB lenders ask before scheduling a call.
           </p>
-        </div>
+        </header>
 
-        {/* right — accordion */}
-        <div>
-          {faqs.map((f) => (
-            <Item key={f.q} q={f.q} a={f.a} />
-          ))}
+        <div
+          className="smb-faq-columns"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr",
+            gap: 12,
+            alignItems: "start",
+          }}
+        >
+          <style>{`
+            @media (min-width: 768px) {
+              .smb-faq-columns {
+                grid-template-columns: 1fr 1fr !important;
+                gap: 20px !important;
+              }
+            }
+          `}</style>
+          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            {faqsColLeft.map((f) => (
+              <Item key={f.q} q={f.q} a={f.a} />
+            ))}
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            {faqsColRight.map((f) => (
+              <Item key={f.q} q={f.q} a={f.a} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

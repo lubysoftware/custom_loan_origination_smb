@@ -43,11 +43,11 @@ export default function SmbFinalCTA() {
   const inputStyle = {
     width: "100%",
     background: "#FFFFFF",
-    border: "1px solid rgba(31,46,61,0.15)",
+    border: "1px solid rgba(6,24,50,0.15)",
     borderRadius: 8,
     padding: "11px 14px",
     fontSize: 14,
-    color: "#1F2E3D",
+    color: "#061832",
     boxSizing: "border-box" as const,
     transition: "border-color 0.15s, box-shadow 0.15s",
   } as React.CSSProperties;
@@ -114,9 +114,9 @@ export default function SmbFinalCTA() {
               fontWeight: 600,
               letterSpacing: "0.08em",
               textTransform: "uppercase",
-              color: "#527A9E",
-              background: "rgba(82,122,158,0.1)",
-              border: "1px solid rgba(82,122,158,0.2)",
+              color: "#41A0DC",
+              background: "rgba(65,160,220,0.08)",
+              border: "1px solid rgba(65,160,220,0.2)",
               padding: "4px 12px",
               borderRadius: 100,
               marginBottom: 20,
@@ -131,29 +131,58 @@ export default function SmbFinalCTA() {
               fontWeight: 700,
               letterSpacing: "-0.03em",
               lineHeight: 1.1,
-              color: "#1F2E3D",
+              color: "#061832",
               marginBottom: 20,
             }}
           >
             Let&apos;s discuss how to improve your servicing experience —{" "}
-            <span style={{ color: "#527A9E", textShadow: "0 0 24px rgba(82,122,158,0.6), 0 0 48px rgba(82,122,158,0.25)" }}>and give you full control over how your platform operates</span>
+            <span style={{ color: "#41A0DC" }}>and give you full control over how your platform operates</span>
           </h2>
 
           <div
             style={{
-              background: "rgba(74,222,128,0.04)",
-              border: "1px solid rgba(74,222,128,0.12)",
-              borderRadius: 10,
-              padding: "14px 16px",
               display: "flex",
-              gap: 10,
+              gap: 14,
               alignItems: "flex-start",
+              background: "#FFFFFF",
+              border: "1px solid rgba(6,24,50,0.08)",
+              borderRadius: 12,
+              padding: "16px 18px",
+              boxShadow: "0 1px 3px rgba(6,24,50,0.04)",
             }}
           >
-            <span style={{ fontSize: 14, flexShrink: 0, marginTop: 1 }}>🔒</span>
-            <p style={{ fontSize: 12, color: "#7A8FA3", lineHeight: 1.65, margin: 0 }}>
-              No commitment. We&apos;ll review your current setup and show you what can be improved.
-            </p>
+            <div
+              aria-hidden
+              style={{
+                flexShrink: 0,
+                width: 40,
+                height: 40,
+                borderRadius: 10,
+                background: "rgba(65,160,220,0.08)",
+                border: "1px solid rgba(65,160,220,0.14)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
+                <path
+                  d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"
+                  stroke="#41A0DC"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+            <div style={{ minWidth: 0 }}>
+              <p style={{ fontSize: 13, fontWeight: 600, color: "#061832", lineHeight: 1.4, margin: "0 0 4px 0" }}>
+                No commitment
+              </p>
+              <p style={{ fontSize: 13, color: "#7A8FA3", lineHeight: 1.6, margin: 0 }}>
+                We&apos;ll review your current setup and show you what can be improved.
+              </p>
+            </div>
           </div>
         </div>
 
@@ -161,12 +190,12 @@ export default function SmbFinalCTA() {
         <div
           style={{
             background: "#FFFFFF",
-            border: "1px solid rgba(31,46,61,0.1)",
+            border: "1px solid rgba(6,24,50,0.1)",
             borderRadius: 16,
             padding: "clamp(20px, 5vw, 36px) clamp(16px, 4vw, 32px)",
           }}
         >
-          <p style={{ fontSize: 16, fontWeight: 600, color: "#1F2E3D", marginBottom: 4, letterSpacing: "-0.02em" }}>
+          <p style={{ fontSize: 16, fontWeight: 600, color: "#061832", marginBottom: 4, letterSpacing: "-0.02em" }}>
             Request your free friction audit
           </p>
           <p style={{ fontSize: 12, color: "#7A8FA3", lineHeight: 1.6, marginBottom: 24 }}>
@@ -185,7 +214,7 @@ export default function SmbFinalCTA() {
           >
             <div className="grid grid-cols-1 sm:grid-cols-2" style={{ gap: 12 }}>
               <div>
-                <label htmlFor="smb-name" style={labelStyle}>First name <span style={{ color: "#527A9E" }}>*</span></label>
+                <label htmlFor="smb-name" style={labelStyle}>First name <span style={{ color: "#41A0DC" }}>*</span></label>
                 <input
                   id="smb-name"
                   type="text"
@@ -197,11 +226,11 @@ export default function SmbFinalCTA() {
                   style={inputStyle}
                   className="focus-visible-ring"
                   onFocus={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "rgba(82,122,158,0.5)")}
-                  onBlur={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "rgba(31,46,61,0.15)")}
+                  onBlur={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "rgba(6,24,50,0.15)")}
                 />
               </div>
               <div>
-                <label htmlFor="smb-lastname" style={labelStyle}>Last name <span style={{ color: "#527A9E" }}>*</span></label>
+                <label htmlFor="smb-lastname" style={labelStyle}>Last name <span style={{ color: "#41A0DC" }}>*</span></label>
                 <input
                   id="smb-lastname"
                   type="text"
@@ -213,13 +242,13 @@ export default function SmbFinalCTA() {
                   style={inputStyle}
                   className="focus-visible-ring"
                   onFocus={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "rgba(82,122,158,0.5)")}
-                  onBlur={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "rgba(31,46,61,0.15)")}
+                  onBlur={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "rgba(6,24,50,0.15)")}
                 />
               </div>
             </div>
 
             <div>
-              <label htmlFor="smb-email" style={labelStyle}>Work email <span style={{ color: "#527A9E" }}>*</span></label>
+              <label htmlFor="smb-email" style={labelStyle}>Work email <span style={{ color: "#41A0DC" }}>*</span></label>
               <input
                 id="smb-email"
                 type="email"
@@ -231,7 +260,7 @@ export default function SmbFinalCTA() {
                 style={inputStyle}
                 className="focus-visible-ring"
                 onFocus={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "rgba(82,122,158,0.5)")}
-                onBlur={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "rgba(31,46,61,0.15)")}
+                onBlur={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "rgba(6,24,50,0.15)")}
               />
             </div>
 
@@ -246,7 +275,7 @@ export default function SmbFinalCTA() {
                 style={inputStyle}
                 className="focus-visible-ring"
                 onFocus={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "rgba(82,122,158,0.5)")}
-                onBlur={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "rgba(31,46,61,0.15)")}
+                onBlur={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "rgba(6,24,50,0.15)")}
               />
             </div>
 
@@ -261,7 +290,7 @@ export default function SmbFinalCTA() {
                 style={{ ...inputStyle, resize: "vertical", fontFamily: "inherit" }}
                 className="focus-visible-ring"
                 onFocus={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "rgba(82,122,158,0.5)")}
-                onBlur={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "rgba(31,46,61,0.15)")}
+                onBlur={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "rgba(6,24,50,0.15)")}
               />
             </div>
 
@@ -273,22 +302,22 @@ export default function SmbFinalCTA() {
                 fontSize: 14,
                 fontWeight: 600,
                 color: "#F5F8FC",
-                background: status === "loading" ? "#527A9E" : "#1F2E3D",
+                background: status === "loading" ? "#2E8AB8" : "#41A0DC",
                 border: "none",
                 borderRadius: 10,
                 cursor: status === "loading" ? "not-allowed" : "pointer",
-                boxShadow: "0 0 0 1px rgba(82,122,158,0.35), 0 4px 20px rgba(82,122,158,0.25)",
+                boxShadow: "0 0 0 1px rgba(65,160,220,0.35), 0 4px 20px rgba(65,160,220,0.25)",
                 transition: "background 0.15s",
                 opacity: status === "loading" ? 0.7 : 1,
               }}
-              onMouseEnter={(e) => { if (status !== "loading") (e.currentTarget as HTMLElement).style.background = "#2d4460"; }}
-              onMouseLeave={(e) => { if (status !== "loading") (e.currentTarget as HTMLElement).style.background = "#1F2E3D"; }}
+              onMouseEnter={(e) => { if (status !== "loading") (e.currentTarget as HTMLElement).style.background = "#2E8AB8"; }}
+              onMouseLeave={(e) => { if (status !== "loading") (e.currentTarget as HTMLElement).style.background = "#41A0DC"; }}
             >
               {status === "loading" ? "Sending..." : "Request My Friction Audit"}
             </button>
 
             {status === "success" && (
-              <p style={{ fontSize: 13, color: "#4ade80", textAlign: "center", margin: 0 }}>
+              <p style={{ fontSize: 13, color: "#41A0DC", textAlign: "center", margin: 0 }}>
                 Message sent! We&apos;ll be in touch within one business day.
               </p>
             )}
@@ -310,7 +339,7 @@ export default function SmbFinalCTA() {
                 fontWeight: 500,
                 color: "#7A8FA3",
                 textDecoration: "none",
-                background: "rgba(31,46,61,0.06)",
+                background: "rgba(6,24,50,0.06)",
                 borderRadius: 10,
                 border: "1px solid rgba(255,255,255,0.1)",
               }}

@@ -20,7 +20,7 @@ html, body {
 }
 
 body {
-  color: #1F2E3D;
+  color: #061832;
   font-family: var(--font-josefin), system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -62,7 +62,7 @@ h1, h2, h3, h4 {
   --smb-sky:     #9EB7D6;
   --smb-arctic:  #527A9E;
   --smb-arctic-dark: #3D6B8E;
-  --smb-midnight:#1F2E3D;
+  --smb-midnight:#061832;
   background: var(--smb-snow);
   color: var(--smb-midnight);
   font-family: var(--font-inter), system-ui, sans-serif;
@@ -75,6 +75,14 @@ h1, h2, h3, h4 {
 .smb-page h4 {
   font-family: var(--font-inter), system-ui, sans-serif;
   font-style: normal;
+}
+
+/* Section titles: 800 reads stronger than 700 on Inter; inline styles use 700 */
+.smb-page h1,
+.smb-page h2 {
+  font-weight: 800 !important;
+  font-variation-settings: "wght" 800;
+  text-rendering: geometricPrecision;
 }
 
 /* ── SMB Landing: scroll reveal ────────────────────────────────────────── */
@@ -116,19 +124,19 @@ h1, h2, h3, h4 {
   padding: 11px 24px;
   font-size: 14px;
   font-weight: 600;
-  color: #F5F8FC;
+  color: #FFFFFF;
   text-decoration: none;
-  background: #527A9E;
+  background: #41A0DC;
   border-radius: 10px;
-  border: 1px solid rgba(158,183,214,0.25);
-  box-shadow: 0 4px 20px rgba(82,122,158,0.3);
+  border: 1px solid rgba(65,160,220,0.35);
+  box-shadow: 0 4px 20px rgba(65,160,220,0.3);
   transition: background 0.15s, box-shadow 0.15s;
   font-family: var(--font-inter), sans-serif;
   letter-spacing: 0.02em;
 }
 .smb-btn-primary:hover {
-  background: #3D6B8E;
-  box-shadow: 0 6px 28px rgba(82,122,158,0.45);
+  background: #2E8AB8;
+  box-shadow: 0 6px 28px rgba(65,160,220,0.45);
 }
 
 .smb-btn-ghost {
@@ -142,12 +150,12 @@ h1, h2, h3, h4 {
   text-decoration: none;
   background: transparent;
   border-radius: 10px;
-  border: 1.5px solid rgba(215,222,230,0.2);
+  border: 1.5px solid rgba(65,160,220,0.25);
   transition: color 0.15s, border-color 0.15s, background 0.15s;
   font-family: var(--font-inter), sans-serif;
 }
 .smb-btn-ghost:hover {
   color: #F5F8FC;
-  border-color: rgba(245,248,252,0.35);
-  background: rgba(245,248,252,0.05);
+  border-color: rgba(65,160,220,0.5);
+  background: rgba(65,160,220,0.08);
 }

@@ -51,8 +51,7 @@ const linkStyle = {
   lineHeight: 2,
   display: "block" as const,
   transition: "color 0.15s",
-  fontFamily: "var(--font-josefin), sans-serif",
-  letterSpacing: "0.02em",
+  letterSpacing: "0.01em",
 };
 
 const colHeadStyle = {
@@ -60,18 +59,18 @@ const colHeadStyle = {
   fontWeight: 600 as const,
   letterSpacing: "0.1em",
   textTransform: "uppercase" as const,
-  color: "#527A9E",
+  color: "#41A0DC",
   marginBottom: 14,
-  fontFamily: "var(--font-josefin), sans-serif",
 };
 
 export default function SmbFooter() {
   return (
     <footer
       style={{
-        background: "#1F2E3D",
+        background: "#061832",
         borderTop: "1px solid rgba(255,255,255,0.07)",
         padding: "clamp(48px, 8vw, 80px) 24px 40px",
+        fontFamily: "var(--font-inter), system-ui, sans-serif",
       }}
     >
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
@@ -92,23 +91,23 @@ export default function SmbFooter() {
             </a>
             {locations.map((loc) => (
               <div key={loc.country} style={{ marginBottom: 20 }}>
-                <p style={{ fontSize: 10, fontWeight: 600, color: "#527A9E", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 8, fontFamily: "var(--font-josefin), sans-serif" }}>
+                <p style={{ fontSize: 10, fontWeight: 600, color: "#41A0DC", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 8 }}>
                   {loc.country}
                 </p>
                 <div style={{ display: "flex", alignItems: "flex-start", gap: 7, marginBottom: 4 }}>
-                  <MapPin size={11} style={{ color: "#527A9E", marginTop: 3, flexShrink: 0 }} />
+                  <MapPin size={11} style={{ color: "#41A0DC", marginTop: 3, flexShrink: 0 }} />
                   <p style={{ fontSize: 12, color: "#6B8099", lineHeight: 1.8, whiteSpace: "pre-line", margin: 0 }}>{loc.address}</p>
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: 7, marginBottom: 2 }}>
-                  <Phone size={11} style={{ color: "#527A9E", flexShrink: 0 }} />
+                  <Phone size={11} style={{ color: "#41A0DC", flexShrink: 0 }} />
                   <a href={`tel:${loc.phone.replace(/\s/g, "")}`} style={{ fontSize: 12, color: "#9EB7D6", textDecoration: "none" }}>{loc.phone}</a>
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: 7, marginBottom: 2 }}>
-                  <Mail size={11} style={{ color: "#527A9E", flexShrink: 0 }} />
+                  <Mail size={11} style={{ color: "#41A0DC", flexShrink: 0 }} />
                   <a href={`mailto:${loc.email}`} style={{ fontSize: 12, color: "#9EB7D6", textDecoration: "none" }}>{loc.email}</a>
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: 7 }}>
-                  <Globe size={11} style={{ color: "#527A9E", flexShrink: 0 }} />
+                  <Globe size={11} style={{ color: "#41A0DC", flexShrink: 0 }} />
                   <a href={loc.siteUrl} target="_blank" rel="noopener noreferrer" style={{ fontSize: 12, color: "#9EB7D6", textDecoration: "none" }}>{loc.web}</a>
                 </div>
               </div>
@@ -164,13 +163,13 @@ export default function SmbFooter() {
           <div style={{ display: "flex", gap: 24 }}>
             {legal.map((l) => (
               <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer"
-                style={{ fontSize: 12, color: "#527A9E", textDecoration: "none", fontFamily: "var(--font-josefin), sans-serif" }}
+                style={{ fontSize: 12, color: "#41A0DC", textDecoration: "none" }}
                 onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "#9EB7D6")}
-                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "#527A9E")}
+                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "#41A0DC")}
               >{l.label}</a>
             ))}
           </div>
-          <p style={{ fontSize: 12, color: "#527A9E", fontFamily: "var(--font-josefin), sans-serif" }}>
+          <p style={{ fontSize: 12, color: "#41A0DC" }}>
             © 2026 Luby Software. All rights reserved.
           </p>
         </div>
