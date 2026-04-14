@@ -4,28 +4,44 @@ import { useState } from "react";
 
 const faqs = [
   {
-    q: "Do you build on top of LoanPro, or do you replace it?",
-    a: "We build on top of LoanPro — or whichever LMS you're already running. We integrate directly via API so your loan data stays in your system of record. We're building the borrower-facing layer and the servicing logic that sits around it.",
+    q: "Do you build on top of any LMS?",
+    a: "Yes. We integrate with your existing LMS, including LoanPro, LendAPI, or others via API. Your LMS remains the system of record while we build the borrower experience and servicing layer around it.",
   },
   {
     q: "We already have a borrower portal. Why rebuild?",
-    a: "Most portals we audit have the same gaps: no proactive outreach before a missed payment, no save-and-return on ACH flows, and no real-time sync with the LMS. Patching those onto an off-the-shelf platform takes longer than building the right thing — and you still don't own the code.",
+    a: "Most portals we audit have the same gaps: no proactive outreach, limited payment flows, and delayed LMS sync. Fixing that on top of an off-the-shelf platform is slow and constrained. A custom build gets you there faster and you own it.",
   },
   {
-    q: "How does codebase ownership actually work?",
-    a: "We deliver the full source code at handoff — no vendor license, no proprietary framework lock-in. Your team can modify, deploy, and maintain everything without coming back to us. We document the architecture and train your engineers as part of the engagement.",
+    q: "How does codebase ownership work?",
+    a: "You get the full source code. No vendor license, no lock-in. Your team can modify, deploy, and maintain independently. We document the system and support the transition.",
   },
   {
-    q: "Can you support SBA 7(a) and 504 loan types specifically?",
-    a: "Yes. We've built SBA compliance into the platform — SOP 50 10 8 workflows, Dodd-Frank 1071 reporting fields, and audit trails. If your portfolio has a mix of conventional and SBA loans, we handle both without different portals.",
+    q: "What does the 8–16 week timeline include?",
+    a: "Discovery, design, build, and launch. At 8 weeks, a scoped MVP running on a live portfolio segment. At 16 weeks, a full production platform with integrations, reporting, and proactive outreach.",
   },
   {
-    q: "What does the 8–16 week timeline actually include?",
-    a: "Week 1 is discovery and friction mapping. Weeks 1–2 include platform design. From there we run continuous engineering sprints with LMS integration. The 8-week end is a scoped MVP against a live portfolio segment. The 16-week end is a full production platform with reporting and proactive outreach baked in.",
+    q: "Why not build this in-house?",
+    a: "You can, but it typically takes 12–18 months and significant upfront cost. We've already built this stack including LMS integrations, compliance layers, and payment flows, so you skip the learning curve and go live faster.",
   },
   {
-    q: "What makes this different from hiring an in-house engineering team?",
-    a: "You're not paying us to learn — you're paying for a team that's already made the mistakes on someone else's dime. Building in-house from scratch takes 12–18 months and $1–2M before you have anything in production. We've shipped this stack before: the compliance layer, the LMS integrations, the payment processors.",
+    q: "What happens after launch?",
+    a: "You own the platform. Your team can continue evolving it internally, or we can support ongoing development depending on your preference.",
+  },
+  {
+    q: "How do you handle support and maintenance?",
+    a: "Flexible. We can hand off fully to your team or stay involved with ongoing support, improvements, and new features.",
+  },
+  {
+    q: "Can this replace multiple vendors?",
+    a: "In many cases, yes. A custom servicing platform can consolidate borrower portal, communication layer, and parts of your servicing workflows, reducing vendor sprawl.",
+  },
+  {
+    q: "How do you ensure security and compliance?",
+    a: "We build for regulated environments from day one, including secure architecture, auditability, and alignment with requirements like SBA, Dodd-Frank 1071, and ECOA.",
+  },
+  {
+    q: "What if our workflows are complex or non-standard?",
+    a: "That's exactly when custom makes the most sense. We design around your credit model, products, and operations instead of forcing you into predefined structures.",
   },
 ];
 
@@ -144,7 +160,7 @@ export default function SmbFAQ() {
             <span style={{ color: "#527A9E" }}>before the conversation</span>
           </h2>
           <p style={{ fontSize: 14, lineHeight: 1.75, color: "#7A8FA3", margin: 0 }}>
-            The questions most SMB lenders ask before scheduling a call.
+            What SMB lenders ask before scheduling a call.
           </p>
         </div>
 

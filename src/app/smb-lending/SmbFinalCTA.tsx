@@ -7,14 +7,6 @@ const EDGE_FUNCTION_URL = "https://pbvjsixlqnuzcnqahbxu.supabase.co/functions/v1
 
 type Status = "idle" | "loading" | "success" | "error";
 
-const painPoints = [
-  "Delinquency climbing above your model's threshold",
-  "Borrowers calling support for tasks they should self-serve",
-  "Waiting on a vendor roadmap to ship a feature you need now",
-  "SBA audit prep eating engineering time",
-  "A portal that wasn't built for how SMB borrowers actually behave",
-];
-
 export default function SmbFinalCTA() {
   const [form, setForm] = useState({ name: "", last_name: "", email: "", phone: "", message: "" });
   const [status, setStatus] = useState<Status>("idle");
@@ -143,35 +135,9 @@ export default function SmbFinalCTA() {
               marginBottom: 20,
             }}
           >
-            If delinquency is climbing and your portal wasn&apos;t built for SMB borrowers,{" "}
-            <span style={{ color: "#527A9E", textShadow: "0 0 24px rgba(82,122,158,0.6), 0 0 48px rgba(82,122,158,0.25)" }}>you&apos;re paying for it every month</span>
+            Let&apos;s discuss how to improve your servicing experience —{" "}
+            <span style={{ color: "#527A9E", textShadow: "0 0 24px rgba(82,122,158,0.6), 0 0 48px rgba(82,122,158,0.25)" }}>and give you full control over how your platform operates</span>
           </h2>
-
-          <ul style={{ listStyle: "none", margin: "0 0 32px", padding: 0, display: "flex", flexDirection: "column", gap: 12 }}>
-            {painPoints.map((point) => (
-              <li key={point} style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
-                <span
-                  style={{
-                    flexShrink: 0,
-                    marginTop: 3,
-                    width: 16,
-                    height: 16,
-                    borderRadius: "50%",
-                    background: "rgba(82,122,158,0.15)",
-                    border: "1px solid rgba(82,122,158,0.3)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <svg width="7" height="7" viewBox="0 0 7 7" fill="none">
-                    <circle cx="3.5" cy="3.5" r="2.5" fill="#527A9E" />
-                  </svg>
-                </span>
-                <span style={{ fontSize: 14, lineHeight: 1.6, color: "#7A8FA3" }}>{point}</span>
-              </li>
-            ))}
-          </ul>
 
           <div
             style={{
@@ -186,8 +152,7 @@ export default function SmbFinalCTA() {
           >
             <span style={{ fontSize: 14, flexShrink: 0, marginTop: 1 }}>🔒</span>
             <p style={{ fontSize: 12, color: "#7A8FA3", lineHeight: 1.65, margin: 0 }}>
-              No commitment. We map your borrower journey and tell you honestly whether a custom platform is the right
-              fit — <span style={{ color: "#527A9E" }}>or if it isn&apos;t.</span>
+              No commitment. We&apos;ll review your current setup and show you what can be improved.
             </p>
           </div>
         </div>
