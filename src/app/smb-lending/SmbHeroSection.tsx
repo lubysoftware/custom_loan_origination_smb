@@ -25,10 +25,24 @@ export default function SmbHeroSection({ basePath }: { basePath: string }) {
 
       <div style={{ position: "relative", zIndex: 1, maxWidth: 1050, width: "100%" }}>
         <motion.div
+          className="smb-hero-pill"
           initial={reduce ? false : { opacity: 0, y: 22 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ ...soft, delay: reduce ? 0 : 0 }}
-          style={{ display: "inline-flex", alignItems: "center", padding: "6px 16px", borderRadius: 100, border: "1px solid rgba(65,160,220,0.25)", background: "rgba(65,160,220,0.08)", marginBottom: 32 }}
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center",
+            flexWrap: "wrap",
+            maxWidth: "100%",
+            padding: "6px 14px",
+            borderRadius: 100,
+            border: "1px solid rgba(65,160,220,0.25)",
+            background: "rgba(65,160,220,0.08)",
+            marginBottom: 32,
+            boxSizing: "border-box",
+            textAlign: "center",
+          }}
         >
           <span style={{ fontSize: 11, fontWeight: 600, color: "#7DC4EB", letterSpacing: "0.08em", textTransform: "uppercase" }}>
             Custom Loan Origination for SMB Lenders
@@ -83,6 +97,7 @@ export default function SmbHeroSection({ basePath }: { basePath: string }) {
       </div>
 
       <motion.div
+        className="smb-hero-mockup-wrap"
         initial={reduce ? false : { opacity: 0, y: 32 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ ...soft, delay: reduce ? 0 : 0.28 }}
@@ -101,9 +116,17 @@ export default function SmbHeroSection({ basePath }: { basePath: string }) {
             .smb-hero-mockup:hover {
               transform: translateY(-12px) !important;
             }
+            @media (max-width: 639px) {
+              .smb-hero-mockup:hover {
+                transform: none !important;
+              }
+            }
+            @media (max-width: 380px) {
+              .smb-hero-pill span { font-size: 10px; letter-spacing: 0.06em; }
+            }
           `}</style>
           <img
-            src={`${basePath}/originationmockup.png`}
+            src={`${basePath}/mockup-hero.png`}
             alt="Application mockup"
             style={{
               width: "100%",

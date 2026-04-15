@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Press_Start_2P, Yeseva_One, Josefin_Sans } from "next/font/google";
 import "./globals.css";
 import "react-device-frameset/styles/marvel-devices.min.css";
@@ -33,16 +33,22 @@ const pressStart2P = Press_Start_2P({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://landing.luby.co"),
-  title: "Custom Loan Servicing Platform for SMB Lenders | Luby",
+  title: "Custom Loan Origination Platform for SMB Lenders | Luby",
   description:
-    "Luby builds custom loan servicing platforms for SMB and SBA lenders — reducing delinquency, cutting support costs, connected to LoanPro and other LMS platforms. You own the code.",
+    "Luby builds custom loan origination platforms for SMB and SBA lenders — integrated with your systems, designed for your credit model, and fully under your control. You own the code.",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/logoluby.svg",
   },
   robots: {
     index: true,
     follow: true,
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#061832",
 };
 
 export default function RootLayout({

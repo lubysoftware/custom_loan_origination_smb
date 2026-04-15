@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://landing.luby.co/ai_oriented_development/sitemap.xml

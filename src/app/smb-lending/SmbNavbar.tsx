@@ -38,7 +38,8 @@ export default function SmbNavbar() {
         style={{
           maxWidth: 1200,
           margin: "0 auto",
-          padding: "0 24px",
+          padding:
+            "0 max(24px, env(safe-area-inset-right)) 0 max(24px, env(safe-area-inset-left))",
           height: 60,
           display: "flex",
           alignItems: "center",
@@ -115,16 +116,24 @@ export default function SmbNavbar() {
 
         {/* mobile burger */}
         <button
+          type="button"
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Menu"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
           className="flex md:hidden"
           style={{
             background: "none",
             border: "none",
             cursor: "pointer",
-            padding: 4,
+            padding: "10px 12px",
+            minWidth: 44,
+            minHeight: 44,
+            boxSizing: "border-box",
             flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
             gap: 5,
+            touchAction: "manipulation",
           }}
         >
           {[0, 1, 2].map((i) => (
@@ -159,7 +168,17 @@ export default function SmbNavbar() {
           boxShadow: menuOpen ? "0 8px 24px rgba(0,0,0,0.3)" : "none",
         }}
       >
-        <ul style={{ listStyle: "none", margin: 0, padding: "12px 24px 20px", display: "flex", flexDirection: "column", gap: 2 }}>
+        <ul
+          style={{
+            listStyle: "none",
+            margin: 0,
+            padding:
+              "12px max(24px, env(safe-area-inset-right)) 20px max(24px, env(safe-area-inset-left))",
+            display: "flex",
+            flexDirection: "column",
+            gap: 2,
+          }}
+        >
           {navLinks.map((l) => (
             <li key={l.href}>
               <a

@@ -10,6 +10,8 @@
 
 html {
   scroll-behavior: smooth;
+  /* Âncoras (#problem, #faq) não ficam atrás do header fixo (60px + folga) */
+  scroll-padding-top: 76px;
 }
 
 html, body {
@@ -158,4 +160,23 @@ h1, h2, h3, h4 {
   color: #F5F8FC;
   border-color: rgba(65,160,220,0.5);
   background: rgba(65,160,220,0.08);
+}
+
+/* Mobile: hero — overlap com a próxima secção menos agressivo em telas estreitas */
+@media (max-width: 639px) {
+  .smb-hero-mockup-wrap {
+    margin-bottom: -56px !important;
+    margin-top: 4px !important;
+  }
+}
+@media (max-width: 380px) {
+  .smb-hero-mockup-wrap {
+    margin-bottom: -40px !important;
+  }
+}
+
+/* Tabela de comparação: scroll com inércia no iOS */
+.smb-comparison-scroll {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
 }

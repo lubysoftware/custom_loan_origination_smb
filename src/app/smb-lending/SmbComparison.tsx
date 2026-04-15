@@ -139,7 +139,7 @@ export default function SmbComparison() {
   const [hoveredRow, setHoveredRow] = useState<number | null>(null);
 
   return (
-    <div style={{ overflowX: "auto" }}>
+    <div className="smb-comparison-scroll" style={{ overflowX: "auto" }}>
       <table
         style={{
           width: "100%",

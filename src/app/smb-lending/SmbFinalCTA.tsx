@@ -45,8 +45,8 @@ export default function SmbFinalCTA() {
     background: "#FFFFFF",
     border: "1px solid rgba(6,24,50,0.15)",
     borderRadius: 8,
-    padding: "11px 14px",
-    fontSize: 14,
+    padding: "12px 14px",
+    fontSize: 16,
     color: "#061832",
     boxSizing: "border-box" as const,
     transition: "border-color 0.15s, box-shadow 0.15s",
@@ -298,8 +298,9 @@ export default function SmbFinalCTA() {
               type="submit"
               disabled={status === "loading"}
               style={{
-                padding: "13px",
-                fontSize: 14,
+                padding: "14px 16px",
+                minHeight: 48,
+                fontSize: 15,
                 fontWeight: 600,
                 color: "#F5F8FC",
                 background: status === "loading" ? "#2E8AB8" : "#41A0DC",

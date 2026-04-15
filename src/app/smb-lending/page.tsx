@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Fragment } from "react";
 import SmbFooter from "./SmbFooter";
 import SmbNavbar from "./SmbNavbar";
 import SmbFAQ from "./SmbFAQ";
@@ -8,6 +9,9 @@ import SmbMotionReveal from "./SmbMotionReveal";
 import SmbHeroSection from "./SmbHeroSection";
 import SmbComparison from "./SmbComparison";
 import SmbChannelCarousel from "./SmbChannelCarousel";
+import SmbLendingJsonLd from "./SmbLendingJsonLd";
+
+const SMB_OG_IMAGE = "https://landing.luby.co/ai_oriented_development/mockup-hero.png";
 
 export const metadata: Metadata = {
   title: "Custom Loan Origination Platform for SMB Lenders | Luby",
@@ -24,12 +28,21 @@ export const metadata: Metadata = {
       "Luby builds custom loan origination platforms for SMB and SBA lenders — integrated with your systems, designed for your credit model, and fully under your control. You own the code.",
     siteName: "Luby",
     locale: "en_US",
+    images: [
+      {
+        url: SMB_OG_IMAGE,
+        width: 1200,
+        height: 675,
+        alt: "Custom loan origination platform — application experience preview",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Custom Loan Origination Platform for SMB Lenders | Luby",
     description:
       "Custom loan origination platforms for SMB and SBA lenders — owned by your team.",
+    images: [SMB_OG_IMAGE],
   },
   robots: { index: true, follow: true },
 };
@@ -152,11 +165,26 @@ function SolutionFeatureIcon({
   }
 }
 
+const SMB_TRUST_RIBBON_ITEMS = [
+  { id: "delivery", lines: ["8–16 week delivery"] as const },
+  { id: "live", lines: ["Live origination", "platforms in production"] as const },
+  { id: "years", lines: ["10+ years", "in financial software"] as const },
+] as const;
+
 export default function SmbLendingPage() {
   return (
     <>
+      <SmbLendingJsonLd />
       <SmbNavbar />
-      <main className="smb-page" style={{ paddingTop: 60 }}>
+      <main
+        className="smb-page"
+        style={{
+          paddingTop: 60,
+          paddingLeft: "env(safe-area-inset-left)",
+          paddingRight: "env(safe-area-inset-right)",
+          paddingBottom: "max(0px, env(safe-area-inset-bottom))",
+        }}
+      >
 
         {/* ═══════════════════════════════════════════════════════════════════
             HERO — ref: "Global Shift With Easy Digital Payments"
@@ -287,7 +315,7 @@ export default function SmbLendingPage() {
         {/* ═══════════════════════════════════════════════════════════════════
             THE SOLUTION — mesmo visual (branco + imagem); 5 cards na mesma estética
         ═══════════════════════════════════════════════════════════════════ */}
-        <section style={{ background: "#FFFFFF", padding: "clamp(80px, 10vw, 120px) 24px" }}>
+        <section style={{ background: "#F5F8FC", padding: "clamp(80px, 10vw, 120px) 24px" }}>
           <SmbMotionReveal>
             {/* top row: text left + image right */}
             <div
@@ -356,7 +384,7 @@ export default function SmbLendingPage() {
                   }}
                 >
                   <img
-                    src={`${BASE}/origination2.png`}
+                    src={`${BASE}/mockup-solution.png`}
                     alt="Application mockup"
                     style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain", display: "block" }}
                   />
@@ -683,10 +711,14 @@ export default function SmbLendingPage() {
               />
             </div>
             <style>{`
+              .smb-lp-trust-ribbon {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                align-items: stretch;
+              }
               @media (max-width: 639px) {
                 .smb-lp-trust-ribbon {
-                  flex-direction: column !important;
-                  align-items: stretch !important;
+                  grid-template-columns: 1fr !important;
                 }
                 .smb-lp-trust-ribbon > div:not(:last-child) {
                   border-right: none !important;
@@ -710,43 +742,52 @@ export default function SmbLendingPage() {
               <div
                 className="smb-lp-trust-ribbon"
                 style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "stretch",
-                  flexWrap: "wrap",
                   maxWidth: 1100,
                   margin: "0 auto",
                   padding: "0 clamp(18px, 4vw, 32px)",
                 }}
               >
-                {["8–16 week delivery", "Live origination platforms in production", "10+ years in financial software"].map((item, idx, arr) => (
+                {SMB_TRUST_RIBBON_ITEMS.map((item, idx, arr) => (
                   <div
-                    key={item}
+                    key={item.id}
                     style={{
-                      flex: "1 1 200px",
+                      minWidth: 0,
                       display: "flex",
                       justifyContent: "center",
-                      alignItems: "center",
+                      alignItems: "flex-start",
                       gap: 12,
-                      padding: "18px 18px",
+                      padding: "18px 12px",
                       borderRight: idx < arr.length - 1 ? "1px solid rgba(255,255,255,0.22)" : "none",
                     }}
                   >
-                    <svg width="20" height="20" viewBox="0 0 16 16" fill="none" aria-hidden style={{ flexShrink: 0, opacity: 0.95 }}>
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      aria-hidden
+                      style={{ flexShrink: 0, opacity: 0.95, marginTop: 2 }}
+                    >
                       <circle cx="8" cy="8" r="7.5" stroke="rgba(255,255,255,0.35)" strokeWidth="1" />
                       <path d="M4.5 8.2l2.3 2.2 4.7-4.5" stroke="#F5F8FC" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                     <span
                       style={{
-                        fontSize: "clamp(15px, 1.5vw, 17px)",
+                        fontSize: "clamp(14px, 1.35vw, 16px)",
                         fontWeight: 600,
                         color: "#F5F8FC",
                         letterSpacing: "-0.01em",
-                        lineHeight: 1.35,
-                        textAlign: "center" as const,
+                        lineHeight: 1.3,
+                        textAlign: "left" as const,
+                        minWidth: 0,
                       }}
                     >
-                      {item}
+                      {item.lines.map((line, i) => (
+                        <Fragment key={`${item.id}-${i}`}>
+                          {i > 0 ? <br /> : null}
+                          {line}
+                        </Fragment>
+                      ))}
                     </span>
                   </div>
                 ))}
@@ -768,9 +809,21 @@ export default function SmbLendingPage() {
                 <div style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "5px 14px", borderRadius: 100, border: "1px solid rgba(65,160,220,0.2)", background: "rgba(65,160,220,0.06)", marginBottom: 20 }}>
                   <span style={{ fontSize: 11, fontWeight: 600, color: "#41A0DC", letterSpacing: "0.06em", textTransform: "uppercase" }}>Why Luby</span>
                 </div>
-                <h2 style={{ fontSize: "clamp(26px, 3.5vw, 42px)", fontWeight: 700, lineHeight: 1.1, letterSpacing: "-0.02em", color: "#061832", marginBottom: 20 }}>
-                  Custom origination used to take long timelines.{" "}
-                  <span style={{ color: "#41A0DC" }}>AI changed that.</span>
+                <h2
+                  className="smb-why-luby-title"
+                  style={{
+                    fontSize: "clamp(26px, 3.5vw, 42px)",
+                    fontWeight: 700,
+                    lineHeight: 1.15,
+                    letterSpacing: "-0.02em",
+                    color: "#061832",
+                    marginBottom: 20,
+                  }}
+                >
+                  <span className="smb-why-luby-title-lead" style={{ display: "block" }}>
+                    Custom origination used to take long timelines.
+                  </span>
+                  <span style={{ display: "block", color: "#41A0DC", marginTop: "0.2em" }}>AI changed that.</span>
                 </h2>
                 <p style={{ fontSize: 15, lineHeight: 1.8, color: "#6B8099", marginBottom: 16, maxWidth: 460 }}>
                   But building fast isn&apos;t the hard part. In financial services, the complexity lives in the details: decisioning logic, application flows, data integrations, and systems that don&apos;t behave the way the documentation suggests.
@@ -818,6 +871,9 @@ export default function SmbLendingPage() {
           </div>
 
           <style>{`
+            .smb-why-luby-title .smb-why-luby-title-lead {
+              text-wrap: balance;
+            }
             @media (max-width: 767px) {
               .smb-sec5-grid { flex-direction: column !important; }
             }
@@ -830,7 +886,7 @@ export default function SmbLendingPage() {
         ═══════════════════════════════════════════════════════════════════ */}
         <section
           id="clients"
-          style={{ background: "#F5F8FC", padding: "clamp(28px, 3.5vw, 40px) 24px" }}
+          style={{ background: "#FFFFFF", padding: "clamp(28px, 3.5vw, 40px) 24px" }}
         >
           <div style={{ maxWidth: 1100, margin: "0 auto", textAlign: "center" }} className="smb-reveal">
             <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 700, lineHeight: 1.1, color: "#061832", marginBottom: 16 }}>
