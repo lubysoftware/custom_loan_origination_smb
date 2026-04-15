@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   description:
     "Luby builds custom loan origination platforms for SMB and SBA lenders — integrated with your systems, designed for your credit model, and fully under your control. You own the code.",
   icons: {
-    icon: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logoluby.svg`,
+    icon: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/favicon.ico`,
   },
   robots: {
     index: true,

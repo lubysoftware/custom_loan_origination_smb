@@ -23,11 +23,13 @@ function useCountTo(
 
   useEffect(() => {
     if (!active) return;
+
     if (options.skip) {
-      setValue(target);
-      return;
+      const t = setTimeout(() => setValue(target), 0);
+      return () => clearTimeout(t);
     }
-    setValue(0);
+
+    const resetTimer = setTimeout(() => setValue(0), 0);
     const startAt = performance.now() + options.delayMs;
     let cancelled = false;
 
@@ -47,6 +49,7 @@ function useCountTo(
     requestAnimationFrame(tick);
     return () => {
       cancelled = true;
+      clearTimeout(resetTimer);
     };
   }, [target, active, options.durationMs, options.delayMs, options.skip]);
 

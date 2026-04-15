@@ -38,7 +38,7 @@ jobs:
         env:
           NODE_ENV: production
           NEXT_PUBLIC_BASE_PATH: /custom_loan_origination
-          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
 
       - name: Verify build output
         run: |
@@ -79,10 +79,10 @@ jobs:
           find deploy_package -type f \( -name "*.html" -o -name "*.js" -o -name "*.css" -o -name "*.json" \) \
             -exec sed -i 's|/_next/|next-assets/|g' {} +
 
-          # Corrige favicon: /custom_loan_origination/logoluby.svg → logoluby.svg (relativo)
-          # Next.js gera href="/custom_loan_origination/logoluby.svg" com NEXT_PUBLIC_BASE_PATH,
-          # mas o arquivo fica em /custom_loan_origination/logoluby.svg — o path relativo resolve ✓
-          sed -i 's|href="/custom_loan_origination/logoluby.svg"|href="logoluby.svg"|g' deploy_package/index.html
+          # Corrige favicon: /custom_loan_origination/favicon.ico → favicon.ico (relativo)
+          # Next.js gera href="/custom_loan_origination/favicon.ico" com NEXT_PUBLIC_BASE_PATH,
+          # mas o arquivo fica em /custom_loan_origination/favicon.ico — o path relativo resolve ✓
+          sed -i 's|"/custom_loan_origination/favicon.ico"|"favicon.ico"|g' deploy_package/index.html
 
           echo "=== Conteúdo do pacote de deploy ==="
           ls -la deploy_package/
@@ -93,7 +93,7 @@ jobs:
           echo "--- Verificando refs _next residuais ---"
           grep -r '_next/' deploy_package/ --include='*.html' --include='*.js' | head -5 || echo "OK: nenhuma ref _next residual"
           echo "--- Verificando favicon ---"
-          grep -o 'logoluby[^"]*' deploy_package/index.html | head -3 || echo "favicon não encontrado"
+          grep -o 'favicon[^"]*' deploy_package/index.html | head -3 || echo "favicon não encontrado"
 
       - name: Create deployment archive
         run: |
