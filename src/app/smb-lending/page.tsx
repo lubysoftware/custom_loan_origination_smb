@@ -11,18 +11,18 @@ import SmbComparison from "./SmbComparison";
 import SmbChannelCarousel from "./SmbChannelCarousel";
 import SmbLendingJsonLd from "./SmbLendingJsonLd";
 
-const SMB_OG_IMAGE = "https://landing.luby.co/ai_oriented_development/mockup-hero.png";
+const SMB_OG_IMAGE = "https://landing.luby.co/custom_loan_origination/mockup-hero.png";
 
 export const metadata: Metadata = {
   title: "Custom Loan Origination Platform for SMB Lenders | Luby",
   description:
     "Luby builds custom loan origination platforms for SMB and SBA lenders — integrated with your systems, designed for your credit model, and fully under your control. You own the code.",
   alternates: {
-    canonical: "https://landing.luby.co/ai_oriented_development/smb-lending/",
+    canonical: "https://landing.luby.co/custom_loan_origination/",
   },
   openGraph: {
     type: "website",
-    url: "https://landing.luby.co/ai_oriented_development/smb-lending/",
+    url: "https://landing.luby.co/custom_loan_origination/",
     title: "Custom Loan Origination Platform for SMB Lenders | Luby",
     description:
       "Luby builds custom loan origination platforms for SMB and SBA lenders — integrated with your systems, designed for your credit model, and fully under your control. You own the code.",

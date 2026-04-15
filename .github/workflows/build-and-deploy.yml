@@ -1,0 +1,222 @@
+name: Build and Deploy — custom_loan_origination
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+env:
+  NODE_VERSION: '20'
+  BUILD_DIR: 'out'
+  DEPLOY_PATH: '/home/u417118653/domains/landing.luby.co/public_html/custom_loan_origination'
+
+jobs:
+  build-and-deploy:
+    name: Build and Deploy to Hostinger
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run linter
+        run: npm run lint
+        continue-on-error: true
+
+      - name: Build application
+        run: npm run build
+        env:
+          NODE_ENV: production
+          NEXT_PUBLIC_BASE_PATH: /custom_loan_origination
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+
+      - name: Verify build output
+        run: |
+          if [ ! -d "${{ env.BUILD_DIR }}" ]; then
+            echo "Error: Build directory '${{ env.BUILD_DIR }}' not found"
+            exit 1
+          fi
+          if [ ! -f "${{ env.BUILD_DIR }}/smb-lending.html" ]; then
+            echo "Error: smb-lending.html not found in build output"
+            exit 1
+          fi
+          echo "Build artifacts:"
+          ls -lah ${{ env.BUILD_DIR }}
+
+      - name: Prepare deploy package
+        run: |
+          mkdir -p deploy_package
+
+          # smb-lending.html vira o index da subpasta (o index.html raiz é só um redirect client-side)
+          cp ${{ env.BUILD_DIR }}/smb-lending.html deploy_package/index.html
+
+          # Copia _next como next-assets (Hostinger LiteSpeed bloqueia /_next/)
+          cp -r ${{ env.BUILD_DIR }}/_next deploy_package/next-assets
+
+          # Copia assets públicos (imagens, svg, favicon, robots, sitemap)
+          # Com NEXT_PUBLIC_BASE_PATH=/custom_loan_origination, as refs ficam
+          # /custom_loan_origination/img.png → landing.luby.co/custom_loan_origination/img.png ✓
+          find ${{ env.BUILD_DIR }} -maxdepth 1 -type f ! -name "*.html" ! -name "*.txt" ! -name "*.json" \
+            -exec cp {} deploy_package/ \;
+          cp ${{ env.BUILD_DIR }}/robots.txt deploy_package/ 2>/dev/null || true
+          cp ${{ env.BUILD_DIR }}/sitemap.xml deploy_package/ 2>/dev/null || true
+          for dir in logos Brand; do
+            [ -d "${{ env.BUILD_DIR }}/$dir" ] && cp -r "${{ env.BUILD_DIR }}/$dir" deploy_package/ || true
+          done
+
+          # Corrige referências: /_next/ → next-assets/ (relativo, sem barra inicial)
+          # Garante que os assets funcionem dentro da subpasta /custom_loan_origination/
+          find deploy_package -type f \( -name "*.html" -o -name "*.js" -o -name "*.css" -o -name "*.json" \) \
+            -exec sed -i 's|/_next/|next-assets/|g' {} +
+
+          # Corrige favicon: /custom_loan_origination/logoluby.svg → logoluby.svg (relativo)
+          # Next.js gera href="/custom_loan_origination/logoluby.svg" com NEXT_PUBLIC_BASE_PATH,
+          # mas o arquivo fica em /custom_loan_origination/logoluby.svg — o path relativo resolve ✓
+          sed -i 's|href="/custom_loan_origination/logoluby.svg"|href="logoluby.svg"|g' deploy_package/index.html
+
+          echo "=== Conteúdo do pacote de deploy ==="
+          ls -la deploy_package/
+          echo "--- Estrutura do next-assets ---"
+          ls -la deploy_package/next-assets/static/ || true
+          echo "--- Verificando referências no index.html ---"
+          grep -o 'next-assets/[^ "]*' deploy_package/index.html | head -5 || echo "Nenhuma ref next-assets encontrada"
+          echo "--- Verificando refs _next residuais ---"
+          grep -r '_next/' deploy_package/ --include='*.html' --include='*.js' | head -5 || echo "OK: nenhuma ref _next residual"
+          echo "--- Verificando favicon ---"
+          grep -o 'logoluby[^"]*' deploy_package/index.html | head -3 || echo "favicon não encontrado"
+
+      - name: Create deployment archive
+        run: |
+          cd deploy_package
+          tar -czf ../deploy.tar.gz .
+          cd ..
+          echo "=== Tamanho do arquivo ==="
+          du -sh deploy.tar.gz
+
+      - name: Ensure DEPLOY_PATH exists on server
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: ${{ secrets.SSH_PORT || 22 }}
+          script_stop: true
+          script: |
+            if [ -d "${{ env.DEPLOY_PATH }}" ]; then
+              echo "Diretório existe: ${{ env.DEPLOY_PATH }}"
+            else
+              echo "Criando: ${{ env.DEPLOY_PATH }}"
+              mkdir -p "${{ env.DEPLOY_PATH }}"
+              echo "Diretório criado."
+            fi
+
+      - name: Copy archive to server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: ${{ secrets.SSH_PORT || 22 }}
+          source: "deploy.tar.gz"
+          target: "/tmp"
+          rm: false
+
+      - name: Extract files on server
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: ${{ secrets.SSH_PORT || 22 }}
+          script_stop: true
+          script: |
+            cd ${{ env.DEPLOY_PATH }}
+            echo "Limpando arquivos antigos..."
+            find . -mindepth 1 -maxdepth 1 -exec rm -rf {} +
+            echo "Extraindo novos arquivos..."
+            tar -xzf /tmp/deploy.tar.gz
+            rm /tmp/deploy.tar.gz
+            echo "=== Arquivos deployados ==="
+            ls -la
+            echo "--- Verificando next-assets ---"
+            ls -la next-assets/static/ 2>/dev/null || echo "WARNING: next-assets/static não encontrado"
+            echo "--- Verificando ausência de _next (não deve existir) ---"
+            ls -la _next 2>/dev/null && echo "WARNING: _next ainda existe!" || echo "OK: _next ausente ✓"
+            echo "Deploy concluído em ${{ env.DEPLOY_PATH }}"
+
+      - name: Deployment summary
+        run: |
+          echo "Build concluído com sucesso"
+          echo "Artifacts deployados em: ${{ env.DEPLOY_PATH }}"
+          echo "Aplicação disponível em: https://landing.luby.co/custom_loan_origination"
+
+      - name: Notify Discord — Deploy Success
+        if: success()
+        run: |
+          curl -H "Content-Type: application/json" \
+            -d '{
+              "embeds": [{
+                "title": "Deploy Concluido com Sucesso",
+                "description": "A rota /custom_loan_origination foi buildada e deployada com sucesso!",
+                "color": 3066993,
+                "fields": [
+                  {"name": "Branch", "value": "${{ github.ref_name }}", "inline": true},
+                  {"name": "Commit", "value": "${{ github.sha }}", "inline": true},
+                  {"name": "Autor", "value": "${{ github.actor }}", "inline": true},
+                  {"name": "URL", "value": "https://landing.luby.co/custom_loan_origination", "inline": false},
+                  {"name": "Workflow", "value": "[Ver logs](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})", "inline": false}
+                ],
+                "footer": {"text": "GitHub Actions"}
+              }]
+            }' \
+            ${{ secrets.DISCORD_WEBHOOK_URL }}
+
+      - name: Notify Discord — Deploy Failure
+        if: failure()
+        run: |
+          curl -H "Content-Type: application/json" \
+            -d '{
+              "embeds": [{
+                "title": "Deploy Falhou",
+                "description": "O deploy da rota /custom_loan_origination falhou. Verifique os logs.",
+                "color": 15158332,
+                "fields": [
+                  {"name": "Branch", "value": "${{ github.ref_name }}", "inline": true},
+                  {"name": "Commit", "value": "${{ github.sha }}", "inline": true},
+                  {"name": "Autor", "value": "${{ github.actor }}", "inline": true},
+                  {"name": "Workflow", "value": "[Ver logs](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})", "inline": false}
+                ],
+                "footer": {"text": "GitHub Actions"}
+              }]
+            }' \
+            ${{ secrets.DISCORD_WEBHOOK_URL }}
+
+      - name: Install Playwright browsers
+        if: success()
+        run: npx playwright install --with-deps chromium
+
+      - name: Run E2E tests (post-deploy)
+        id: e2e
+        if: success()
+        run: npm run test:e2e
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+
+      - name: Upload test artifacts
+        if: always() && steps.e2e.outcome != 'skipped'
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report-${{ github.run_id }}
+          path: |
+            test-results/
+          retention-days: 7

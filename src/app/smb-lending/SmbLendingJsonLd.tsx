@@ -1,7 +1,7 @@
 import { SMB_FAQ_ITEMS } from "./faq-data";
 
-const PAGE_URL = "https://landing.luby.co/ai_oriented_development/smb-lending/";
-const OG_IMAGE = "https://landing.luby.co/ai_oriented_development/mockup-hero.png";
+const PAGE_URL = "https://landing.luby.co/custom_loan_origination/";
+const OG_IMAGE = "https://landing.luby.co/custom_loan_origination/mockup-hero.png";
 
 export default function SmbLendingJsonLd() {
   const faqSchema = {
@@ -29,7 +29,7 @@ export default function SmbLendingJsonLd() {
     isPartOf: {
       "@type": "WebSite",
       name: "Luby",
-      url: "https://landing.luby.co/ai_oriented_development/",
+      url: "https://landing.luby.co/",
     },
     primaryImageOfPage: {
       "@type": "ImageObject",
