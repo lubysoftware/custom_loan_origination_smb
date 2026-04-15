@@ -198,7 +198,7 @@ jobs:
                 "footer": {"text": "GitHub Actions"}
               }]
             }' \
-            ${{ secrets.DISCORD_WEBHOOK_URL }}
+            "${{ secrets.DISCORD_WEBHOOK_URL }}"
 
       - name: Notify Discord — Deploy Failure
         if: failure()
@@ -219,4 +219,4 @@ jobs:
                 "footer": {"text": "GitHub Actions"}
               }]
             }' \
-            ${{ secrets.DISCORD_WEBHOOK_URL }}
+            "${{ secrets.DISCORD_WEBHOOK_URL }}"
