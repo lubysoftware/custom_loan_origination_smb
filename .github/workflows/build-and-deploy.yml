@@ -160,24 +160,6 @@ jobs:
           echo "Artifacts deployados em: ${{ env.DEPLOY_PATH }}"
           echo "Aplicação disponível em: https://landing.luby.co/custom_loan_origination"
 
-      - name: Install Playwright browsers
-        if: success()
-        run: npx playwright install --with-deps chromium
-
-      - name: Run E2E tests (post-deploy)
-        id: e2e
-        if: success()
-        run: npm run test:e2e
-
-      - name: Upload test artifacts
-        if: always() && steps.e2e.outcome != 'skipped'
-        uses: actions/upload-artifact@v4
-        with:
-          name: playwright-report-${{ github.run_id }}
-          path: |
-            test-results/
-          retention-days: 7
-
       - name: Notify Discord — Deploy Success
         if: success()
         continue-on-error: true
@@ -186,7 +168,7 @@ jobs:
             -d '{
               "embeds": [{
                 "title": "Deploy Concluido com Sucesso",
-                "description": "A rota /custom_loan_origination foi buildada, deployada e os testes E2E passaram!",
+                "description": "A rota /custom_loan_origination foi buildada e deployada!",
                 "color": 3066993,
                 "fields": [
                   {"name": "Branch", "value": "${{ github.ref_name }}", "inline": true},
@@ -209,6 +191,69 @@ jobs:
               "embeds": [{
                 "title": "Deploy Falhou",
                 "description": "O deploy da rota /custom_loan_origination falhou. Verifique os logs.",
+                "color": 15158332,
+                "fields": [
+                  {"name": "Branch", "value": "${{ github.ref_name }}", "inline": true},
+                  {"name": "Commit", "value": "${{ github.sha }}", "inline": true},
+                  {"name": "Autor", "value": "${{ github.actor }}", "inline": true},
+                  {"name": "Workflow", "value": "[Ver logs](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})", "inline": false}
+                ],
+                "footer": {"text": "GitHub Actions"}
+              }]
+            }' \
+            "${{ secrets.DISCORD_WEBHOOK_URL }}"
+
+      - name: Install Playwright browsers
+        if: success()
+        run: npx playwright install --with-deps chromium
+
+      - name: Run E2E tests (post-deploy)
+        id: e2e
+        if: success()
+        run: npm run test:e2e
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+
+      - name: Upload test artifacts
+        if: always() && steps.e2e.outcome != 'skipped'
+        continue-on-error: true
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report-${{ github.run_id }}
+          path: |
+            test-results/
+          retention-days: 7
+
+      - name: Notify Discord — E2E Tests Passaram
+        if: always() && steps.e2e.outcome == 'success'
+        continue-on-error: true
+        run: |
+          curl -H "Content-Type: application/json" \
+            -d '{
+              "embeds": [{
+                "title": "E2E Tests Passaram",
+                "description": "Todos os testes E2E passaram para /custom_loan_origination",
+                "color": 3066993,
+                "fields": [
+                  {"name": "Branch", "value": "${{ github.ref_name }}", "inline": true},
+                  {"name": "Commit", "value": "${{ github.sha }}", "inline": true},
+                  {"name": "Autor", "value": "${{ github.actor }}", "inline": true},
+                  {"name": "Workflow", "value": "[Ver logs](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})", "inline": false}
+                ],
+                "footer": {"text": "GitHub Actions"}
+              }]
+            }' \
+            "${{ secrets.DISCORD_WEBHOOK_URL }}"
+
+      - name: Notify Discord — E2E Tests Falharam
+        if: always() && steps.e2e.outcome == 'failure'
+        continue-on-error: true
+        run: |
+          curl -H "Content-Type: application/json" \
+            -d '{
+              "embeds": [{
+                "title": "E2E Tests Falharam",
+                "description": "Os testes E2E falharam para /custom_loan_origination. Verifique os logs.",
                 "color": 15158332,
                 "fields": [
                   {"name": "Branch", "value": "${{ github.ref_name }}", "inline": true},
