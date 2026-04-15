@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 
 test.describe("Custom Loan Origination — formulário de contato", () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto("/");
+    await page.goto("./");
   });
 
   test("página carrega com título correto", async ({ page }) => {

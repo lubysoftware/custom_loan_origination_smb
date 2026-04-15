@@ -5,7 +5,7 @@ export default defineConfig({
   timeout: 30_000,
   retries: 1,
   use: {
-    baseURL: "https://landing.luby.co/custom_loan_origination",
+    baseURL: "https://landing.luby.co/custom_loan_origination/",
     headless: true,
     screenshot: "only-on-failure",
     video: "retain-on-failure",
