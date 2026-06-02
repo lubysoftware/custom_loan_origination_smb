@@ -7,7 +7,6 @@ const clients = [
   { file: "ONLINE-IPS.png",   alt: "Online IPS" },
   { file: "Papaya.png",       alt: "Papaya" },
   { file: "SIEMENS.png",      alt: "Siemens" },
-  { file: "CALIBER.png",      alt: "Caliber" },
   { file: "DCI.png",          alt: "DCI" },
   { file: "FOXTROT.png",      alt: "Foxtrot" },
   { file: "GIGPAY.png",       alt: "GigPay" },
@@ -97,23 +96,16 @@ export default function SmbClients() {
 
         {/* logo grid */}
         <div
-          className="smb-clients-grid"
+          className="flex flex-wrap justify-center gap-2.5"
           style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(2, 1fr)",
-            gap: 10,
             maxWidth: 896,
             margin: "0 auto 64px",
           }}
         >
-          <style>{`
-            @media (min-width: 640px) {
-              .smb-clients-grid { grid-template-columns: repeat(4, 1fr) !important; }
-            }
-          `}</style>
           {clients.map((c) => (
             <div
               key={c.file}
+              className="w-[calc(50%-0.3125rem)] md:w-[calc(25%-0.46875rem)]"
               style={{
                 background: "rgba(255,255,255,0.04)",
                 border: "1px solid rgba(65,160,220,0.15)",

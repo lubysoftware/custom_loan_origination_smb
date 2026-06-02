@@ -54,7 +54,6 @@ const SMB_CLIENT_LOGOS = [
   "ONLINE-IPS",
   "Papaya",
   "SIEMENS",
-  "CALIBER",
   "DCI",
   "FOXTROT",
   "GIGPAY",
